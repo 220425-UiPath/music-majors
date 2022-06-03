@@ -1,6 +1,6 @@
 {
   "name": "BardBotPerformer",
-  "description": "A performer robot for retrieving queued music and playing it through a bot account.",
+  "description": "A performer robot for retrieving queued music and playing it through the user's microphone audio stream.",
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.12.3]",
