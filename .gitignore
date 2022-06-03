@@ -3,4 +3,6 @@
 .objects/
 .screenshots/
 .settings/
+build/
+*.spec
 ~*
