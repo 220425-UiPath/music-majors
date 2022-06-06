@@ -119,7 +119,14 @@
       </ui:TriggerScope.Action>
       <ui:TriggerScope.Triggers>
         <scg:List x:TypeArguments="Activity" Capacity="4">
-          <ui:FileChangeTriggerV3 IncludeSubdirectories="{x:Null}" ChangeType="Changed" DisplayName="File Change Trigger" FileNameFilter="QueueItems.txt" sap:VirtualizedContainerService.HintSize="637,183" sap2010:WorkflowViewState.IdRef="FileChangeTriggerV3_1" NotifyFilters="FileName" Path="C:\Revature\P2\music-majors\BardBot\dist" />
+          <ui:FileChangeTriggerV3 IncludeSubdirectories="{x:Null}" ChangeType="Changed" DisplayName="File Change Trigger" FileNameFilter="QueueItems.txt" sap:VirtualizedContainerService.HintSize="637,183" sap2010:WorkflowViewState.IdRef="FileChangeTriggerV3_1" NotifyFilters="LastWrite" Path="C:\Revature\P2\music-majors\BardBot\dist">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+          </ui:FileChangeTriggerV3>
         </scg:List>
       </ui:TriggerScope.Triggers>
     </ui:TriggerScope>
