@@ -4,5 +4,6 @@
 .screenshots/
 .settings/
 build/
+QueueItems.txt
 *.spec
 ~*
