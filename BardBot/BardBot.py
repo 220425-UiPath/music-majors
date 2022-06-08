@@ -69,4 +69,8 @@ def run_parallel(*functions):
         process.join()
 
 if __name__ == '__main__':
-    run_parallel(run_local_webserver, run_discord_bot)
+    try:
+        multiprocessing.freeze_support()
+        run_parallel(run_local_webserver, run_discord_bot)
+    finally:
+        output_html('', '')
