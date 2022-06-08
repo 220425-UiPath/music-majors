@@ -1,14 +1,14 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Sequence" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Sequence" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.ComponentModel;assembly=System" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1208,2191</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>968,4316</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Sequence_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <scg:List x:TypeArguments="x:String" Capacity="76">
+    <scg:List x:TypeArguments="x:String" Capacity="80">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -48,10 +48,12 @@
       <x:String>UiPath.Platform.Triggers.Scope</x:String>
       <x:String>UiPath.Platform.ResourceHandling</x:String>
       <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.Core.Activities.Orchestrator</x:String>
     </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <scg:List x:TypeArguments="AssemblyReference" Capacity="58">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="31">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -85,23 +87,24 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="969,2086" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Sequence" sap:VirtualizedContainerService.HintSize="783,4251" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Boolean" Name="matchOutput" />
+      <Variable x:TypeArguments="x:String" Name="playlisturls" />
     </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="927,91" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Waiting for new chat message.&quot;]" />
-    <ui:TriggerScope DisplayName="Trigger Scope" sap:VirtualizedContainerService.HintSize="927,1863" sap2010:WorkflowViewState.IdRef="TriggerScope_1" SchedulingMode="Sequential">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="741,93" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info" Message="[&quot;Waiting for new chat message.&quot;]" />
+    <ui:TriggerScope DisplayName="Trigger Scope" sap:VirtualizedContainerService.HintSize="741,4026" sap2010:WorkflowViewState.IdRef="TriggerScope_1" SchedulingMode="Sequential">
       <ui:TriggerScope.Action>
         <ActivityAction x:TypeArguments="ui:FileChangeTriggerArgs">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="ui:FileChangeTriggerArgs" Name="args" />
           </ActivityAction.Argument>
-          <Sequence sap:VirtualizedContainerService.HintSize="875,1453" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence sap:VirtualizedContainerService.HintSize="689,3610" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="fileContents" />
               <Variable x:TypeArguments="s:String[]" Name="fileContentsLines" />
@@ -111,16 +114,16 @@
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="833,91" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;File change detected.&quot;]" />
-            <ui:ReadTextFile File="{x:Null}" Content="[fileContents]" DisplayName="Read Text File" FileName=".\QueueItems.txt" sap:VirtualizedContainerService.HintSize="833,79" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
-            <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName=".\QueueItems.txt" sap:VirtualizedContainerService.HintSize="833,132" sap2010:WorkflowViewState.IdRef="WriteTextFile_1">
+            <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="647,93" sap2010:WorkflowViewState.IdRef="LogMessage_3" Level="Info" Message="[&quot;File change detected.&quot;]" />
+            <ui:ReadTextFile File="{x:Null}" Content="[fileContents]" DisplayName="Read Text File" FileName=".\QueueItems.txt" sap:VirtualizedContainerService.HintSize="647,80" sap2010:WorkflowViewState.IdRef="ReadTextFile_1" />
+            <ui:WriteTextFile File="{x:Null}" DisplayName="Write Text File" FileName=".\QueueItems.txt" sap:VirtualizedContainerService.HintSize="647,134" sap2010:WorkflowViewState.IdRef="WriteTextFile_1">
               <ui:WriteTextFile.Text>
                 <InArgument x:TypeArguments="x:String">
                   <Literal x:TypeArguments="x:String" Value="" />
                 </InArgument>
               </ui:WriteTextFile.Text>
             </ui:WriteTextFile>
-            <Assign sap:VirtualizedContainerService.HintSize="833,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+            <Assign sap:VirtualizedContainerService.HintSize="647,60" sap2010:WorkflowViewState.IdRef="Assign_1">
               <Assign.To>
                 <OutArgument x:TypeArguments="s:String[]">[fileContentsLines]</OutArgument>
               </Assign.To>
@@ -128,40 +131,153 @@
                 <InArgument x:TypeArguments="s:String[]">[fileContents.Split(CChar(Constants.vbCrLf))]</InArgument>
               </Assign.Value>
             </Assign>
-            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="833,839" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[fileContentsLines]">
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="647,2991" sap2010:WorkflowViewState.IdRef="ForEach`1_1" Values="[fileContentsLines]">
               <ui:ForEach.Body>
                 <ActivityAction x:TypeArguments="x:String">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="x:String" Name="url" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="797,715" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="611,2866" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <Sequence.Variables>
+                      <Variable x:TypeArguments="x:Boolean" Name="matchoutput2" />
+                      <Variable x:TypeArguments="x:Boolean" Name="matchoutput3" />
+                    </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="755,91" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[String.Format(&quot;Examining string: {0}&quot;, url)]" />
-                    <ui:IsMatch BuilderPattern="^(https://www.youtube.com).*$" DisplayName="Is Match" sap:VirtualizedContainerService.HintSize="755,59" sap2010:WorkflowViewState.IdRef="IsMatch_1" Input="[url]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;^(https:\/\/www.youtube.com).*$&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="^(https://www.youtube.com).*$" RegexOption="IgnoreCase, Compiled" Result="[matchOutput]" />
-                    <If Condition="[matchOutput = True]" sap:VirtualizedContainerService.HintSize="755,393" sap2010:WorkflowViewState.IdRef="If_1">
-                      <If.Then>
-                        <Sequence sap:VirtualizedContainerService.HintSize="376,245" sap2010:WorkflowViewState.IdRef="Sequence_5">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Adding url to queue.&quot;]" />
-                          <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]">
-                            <ui:AddQueueItem.ItemInformation>
-                              <InArgument x:TypeArguments="x:String" x:Key="Song_URL">[url]</InArgument>
-                            </ui:AddQueueItem.ItemInformation>
-                          </ui:AddQueueItem>
-                        </Sequence>
-                      </If.Then>
-                      <If.Else>
-                        <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn" Message="[&quot;Not a valid url&quot;]" />
-                      </If.Else>
-                    </If>
+                    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="569,93" sap2010:WorkflowViewState.IdRef="LogMessage_6" Level="Info" Message="[String.Format(&quot;Examining string: {0}&quot;, url)]" />
+                    <ui:IsMatch sap2010:Annotation.AnnotationText="confirms that url is a youtube url" BuilderPattern="^(https://www.youtube.com).*$" DisplayName="Is Match" sap:VirtualizedContainerService.HintSize="569,90" sap2010:WorkflowViewState.IdRef="IsMatch_1" Input="[url]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;^(https:\/\/www.youtube.com).*$&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="^(https://www.youtube.com).*$" RegexOption="IgnoreCase, Compiled" Result="[matchOutput]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:IsMatch>
+                    <ui:IsMatch sap2010:Annotation.AnnotationText="Confirms Youtube link is a watchable video and not a generic youtube page.&#xA;" BuilderPattern="(watch).*" DisplayName="Is Match" sap:VirtualizedContainerService.HintSize="569,119" sap2010:WorkflowViewState.IdRef="IsMatch_2" Input="[url]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(watch).*&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(watch).*" RegexOption="IgnoreCase" Result="[matchoutput2]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:IsMatch>
+                    <ui:IsMatch sap2010:Annotation.AnnotationText="Confirms Youtube playlist is at a point where extension will be able to export video urls&#xA;" BuilderPattern="(list).*" DisplayName="Is Match" sap:VirtualizedContainerService.HintSize="569,119" sap2010:WorkflowViewState.IdRef="IsMatch_3" Input="[url]" IsBuilderTabModified="True" Model="[{&quot;Index&quot;:0,&quot;OperationID&quot;:&quot;ADV&quot;,&quot;OperationName&quot;:&quot;Advanced&quot;,&quot;OperationValue&quot;:&quot;(list).*&quot;,&quot;QuantifierFirstValue&quot;:&quot;1&quot;,&quot;QuantifierID&quot;:&quot;EXT&quot;,&quot;QuantifierName&quot;:&quot;Exactly&quot;,&quot;QuantifierSecondValue&quot;:null}]" Pattern="(watch).*" RegexOption="IgnoreCase" Result="[matchoutput3]">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                    </ui:IsMatch>
+                    <ui:IfElseIf DisplayName="Else If" sap:VirtualizedContainerService.HintSize="569,2193" sap2010:WorkflowViewState.IdRef="IfElseIf_1">
+                      <ui:IfElseIf.ConditionBlocks>
+                        <sc:BindingList x:TypeArguments="ui:IfElseIfBlock" AllowEdit="True" AllowNew="True" AllowRemove="True" RaiseListChangedEvents="True">
+                          <ui:IfElseIfBlock BlockType="If" Condition="[matchOutput = True and matchoutput2 = True and matchoutput3 = True]">
+                            <ui:IfElseIfBlock.Then>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,1423" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                                <Sequence.Variables>
+                                  <Variable x:TypeArguments="sd:DataTable" Name="playlistDT" />
+                                </Sequence.Variables>
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <uix:NApplicationCard WebDriverMode="{x:Null}" sap2010:Annotation.AnnotationText="Opens Firefox on Youtube url&#xA;" AttachMode="ByInstance" DisplayName="Use Browser Firefox: - YouTube" sap:VirtualizedContainerService.HintSize="434,662" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="63ac1be2-3d72-4647-b706-b15ad854e1c1" Version="V1">
+                                  <uix:NApplicationCard.Body>
+                                    <ActivityAction x:TypeArguments="x:Object">
+                                      <ActivityAction.Argument>
+                                        <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                                      </ActivityAction.Argument>
+                                      <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,401" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                                        <sap:WorkflowViewStateService.ViewState>
+                                          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                          </scg:Dictionary>
+                                        </sap:WorkflowViewStateService.ViewState>
+                                        <uix:NClick sap2010:Annotation.AnnotationText="Selects the export button on Youtube playlist to save urls to clipboard" ClickType="Single" DisplayName="Click 'Export'" sap:VirtualizedContainerService.HintSize="334,201" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left">
+                                          <uix:NClick.Target>
+                                            <uix:TargetAnchorable BrowserURL="https://www.youtube.com/watch?v=7h6VsZQGvd8&amp;list=PLZ57fDucI-qGRzvysz3YxUQNC9uvLPEKF&amp;index=2" DesignTimeRectangle="2508, 457, 145, 72" ElementType="Button" FriendlyName="'Export'" FullSelectorArgument="&lt;webctrl css-selector='body&amp;gt;ytd-app&amp;gt;div&amp;gt;ytd-page-manager&amp;gt;ytd-watch-flexy&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ytd-playlist-panel-renderer&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;button' parentid='end-actions' tag='BUTTON' /&gt;" FuzzySelectorArgument="&lt;webctrl css-selector='body&amp;gt;ytd-app&amp;gt;div&amp;gt;ytd-page-manager&amp;gt;ytd-watch-flexy&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;ytd-playlist-panel-renderer&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;div&amp;gt;button' parentid='end-actions' tag='BUTTON' type='' aaname='Export' check:text='Export' /&gt;" Guid="fc30f398-b9b9-436c-b076-cc54f642ed4b" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAJUAAABMCAYAAABkk/WoAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAHYcAAB2HAY/l8WUAAAW2SURBVHhe7ZrNa+NGGIf3TzXCJIgkdbc2pASc7QbvwWBwXQy5BFIIAh+2+BIIbEsgDYFd1hTKhiUHLyYFExJy8MGHBB1+HcuSPCPJ+lhe9wP/HnghOKPRSPNoZvSOXoAQYSgVEYdSEXEoFRGHUhFxKBURh1IRcSgVEYdSEXEoFRGHUhFxKBURh1IRcSgVEYdSEXEoFRGHUhFxKBURh1IRcSgVEYdSEXEoFRGHUhFxKBURh1IRcSgVEYdSEXEoFRFn5VKNnBpKpVKhqDkjdeQEFy1b+91G+2o6rzQJ9xpHFa0eq4Gzif8/XKAV1rMsLGxsVbHfcXB5++Qfl8HTLS6dDvarW9iw/HqsDWxV99FxLpFVzUVLP39SlGHv+G36MoXrH+dx0Uoonz9aF349K+A/LJVicoZG0FmzqBzh2rizC0a9XVhhHRZ2e34dHnmk0qOM6uEHpfUyXIzP23ipty0pylV0zsemDBrZUulhYbt5hnFQGaUKLmb25O1gJyNe9//yjwbu+vUUWXyi8tVOMDQfa0Mqa2Mrft6tDe0887DVnY+L5WLY20M5UnZ+bXbC7zZe9YeJYhlSzUa4aJvsslbPPOz2Fbzx+v2hWTYI4zpmo29CGRWH770mrIR/WKqW6t6ijODUguNVGNPajCmu2uY02R1Eu9CUKhwJIzzd/47uSyu1Lnd4gppWl7V9AOfjPRYz3RPuPzp4ZS/KlKxdJD0LhlQ1R11pnKfbX9E22lTDkubPGTla+zLKroj/gVSz5dIRKmEd6mntDsInP/a/4Ek2yCeVR2TUs1R9C+7Qr2sdbKvrWTZHTs7R3NTqefMu1q48UnncHBvXWO8/+P9IgFLlxcWgq49GFRx5i6tIJ8dGsYACUqlznTcXZY3ONjrMQiP5ZCF3b/cW9ZTqiLqQWyoM0NUETW0/pSpA9Mmv93Fz1jDWD/X+nV84ShGp1MDw87dhWb2zH9T6Lvy9pAROeRn1eOijHpYvKQnNA/JLdYW2NnpSKimpFJOIRJaxOE/rFJmRKr8EAUOcfLc4ZlNN2zp565ucN7EZlFPX3bpIWvb7rJ9UWZF1E0bo7eqL1iCC6XAZX7+mWojwoKbaxe+lXO/k6cdkSeVOx/h0GkldpKRVPChVNLJvQvTtaxb6wj2ZHFK5U4zVW9vB9rK3v8hbaM5EjyFOmlR5oryHnpkribN+UmXlqV5DS1El4g66sMP65mE1zlISlTNMqfKFhe2O/ib5b0pVxjcNB388Zgg1g2uqgkS3YsLYVOuMtFVzQamsbRw4f0ZEXfH0F01+GonPAnJQqiK4GJ6Yo165HPytwu4ilvMMMaVKzKjvfI/Gj4dwfvuE+yV7doYEq16oux/wk/a2u6mEzHrZ9KBUBbhTr+d6UlJNeeOrtjEVVo6ul6ytCizUUyicUpiqRb923qIpBfPe5RSEUuVlgrOGnuQMtj0ivy+9iTJSmR2WnfycnP4QnrNU2sPbSBotc+SbqnYXHa0oVT7MPE1kRBr1sKuPYPU+4ilQIakKbdOoc2r7f1+7TXNzXFmUKVVwfOP/YxmUKgfuAF19cza2dnJxfaTf+KQRREoqdbbYhnITv3x+1KZdF9Mvp2gaqYkaThJSAbnWaNN3eKM/NAlyGqyfVEU/fckjjGJ6hbYhXhvm93xyUs3alPjpS9n22m7rLw9elLHXy/HpyzKpFIVGq/WTKl8EnR4bFRKntjnmFk40ISop1YzZR3odVGMCRaLIR3opUsW+nEgbrShVcnid7g7hGFsyWVsx0S0cvby0VD6SnxOnSaW0NEfslNFqHaQi6welIuJQKiIOpSLiUCoiDqUi4lAqIg6lIuJQKiIOpSLiUCoiDqUi4lAqIg6lIuJQKiIOpSLiUCoiDqUi4lAqIg6lIuJQKiIOpSLiUCoiDqUi4lAqIg6lIuK8eHx8BGO94vn5eaVBqdYwkkSQi2f8DS5Ck3zmJvoNAAAAAElFTkSuQmCC" InformativeScreenshot="46a9ebfa4b06219af8bdaa31686c90a4.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='Wen Kexing/Zhou Zishu - War of Hearts - YouTube' /&gt;" SearchSteps="FuzzySelector, Image" />
+                                          </uix:NClick.Target>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </uix:NClick>
+                                        <ui:GetFromClipboard TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="Gets playlist urls and places into string variables" DisplayName="Get From Clipboard" sap:VirtualizedContainerService.HintSize="334,66" sap2010:WorkflowViewState.IdRef="GetFromClipboard_1">
+                                          <ui:GetFromClipboard.Result>
+                                            <OutArgument x:TypeArguments="x:String">[playlisturls]</OutArgument>
+                                          </ui:GetFromClipboard.Result>
+                                          <sap:WorkflowViewStateService.ViewState>
+                                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                            </scg:Dictionary>
+                                          </sap:WorkflowViewStateService.ViewState>
+                                        </ui:GetFromClipboard>
+                                      </Sequence>
+                                    </ActivityAction>
+                                  </uix:NApplicationCard.Body>
+                                  <uix:NApplicationCard.TargetApp>
+                                    <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Firefox" IconBase64="iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAHYcAAB2HAY/l8WUAAACUSURBVDhPpZIBDYAgEEUvAhGMQAQiEIEIRiASEYxik+8d4ER3OBG3p/iPvY3jCMAUajjC9UNkGFeJHc66uQuIQl6OEYqAyDbhKFYE/hGOEEQgZ9OKwL4Dzum1QnwXnE9KwLJoez4Ktu2nQI7gvV4rZEG/iYavW8svchMnr5E/vJgYJH5VSTvKKyO9edIZ5QnU8DugAz5ePeeqirlIAAAAAElFTkSuQmCC" InformativeScreenshot="ed4bd56fd6562b00a131f5d9eb26cbde.png" Selector="&lt;html app='firefox.exe' title='Wen Kexing/Zhou Zishu - War of Hearts - YouTube'/&gt;" Url="[url]" />
+                                  </uix:NApplicationCard.TargetApp>
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </uix:NApplicationCard>
+                                <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="434,62" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="[playlisturls]" />
+                                <ui:GenerateDataTable ColumnSeparators="{x:Null}" ColumnSizes="{x:Null}" NewLineSeparator="{x:Null}" Positions="{x:Null}" sap2010:Annotation.AnnotationText="generates datatable variable using the data from the string variable compiled in &quot;Get From Clipboard&quot;" DataTable="[playlistDT]" DisplayName="Generate Data Table" sap:VirtualizedContainerService.HintSize="434,246" sap2010:WorkflowViewState.IdRef="GenerateDataTable_1" Input="[playlisturls]">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:GenerateDataTable>
+                                <ui:BulkAddQueueItems TimeoutMS="{x:Null}" sap2010:Annotation.AnnotationText="utilizes the datatable variable from the previous activity to add all the items/urls in the datatable to the queue, each as a singular queue item" DisplayName="Bulk Add Queue Items" sap:VirtualizedContainerService.HintSize="434,114" sap2010:WorkflowViewState.IdRef="BulkAddQueueItems_1" QueueItemsDataTable="[playlistDT]" QueueName="Zoombot">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                </ui:BulkAddQueueItems>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="434,87" sap2010:WorkflowViewState.IdRef="LogMessage_7" Level="Info" Message="[&quot;Playlist was added to queue.&quot;]" />
+                              </Sequence>
+                            </ui:IfElseIfBlock.Then>
+                          </ui:IfElseIfBlock>
+                          <ui:IfElseIfBlock BlockType="ElseIf" Condition="[matchOutput = True and matchoutput2 = True and matchoutput3 = False]">
+                            <ui:IfElseIfBlock.Then>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,241" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="LogMessage_5" Level="Info" Message="[&quot;Adding url to queue.&quot;]" />
+                                <ui:AddQueueItem ServiceBaseAddress="{x:Null}" TimeoutMS="{x:Null}" DisplayName="Add Queue Item" sap:VirtualizedContainerService.HintSize="334,22" sap2010:WorkflowViewState.IdRef="AddQueueItem_1" Priority="Normal" QueueType="[in_Config(&quot;OrchestratorQueueName&quot;).ToString]">
+                                  <ui:AddQueueItem.ItemInformation>
+                                    <InArgument x:TypeArguments="x:String" x:Key="Song_URL">[url]</InArgument>
+                                  </ui:AddQueueItem.ItemInformation>
+                                </ui:AddQueueItem>
+                              </Sequence>
+                            </ui:IfElseIfBlock.Then>
+                          </ui:IfElseIfBlock>
+                          <ui:IfElseIfBlock BlockType="Else">
+                            <ui:IfElseIfBlock.Then>
+                              <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,179" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                                <sap:WorkflowViewStateService.ViewState>
+                                  <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                    <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                  </scg:Dictionary>
+                                </sap:WorkflowViewStateService.ViewState>
+                                <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="334,87" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Warn" Message="[&quot;Not a valid url&quot;]" />
+                              </Sequence>
+                            </ui:IfElseIfBlock.Then>
+                          </ui:IfElseIfBlock>
+                        </sc:BindingList>
+                      </ui:IfElseIf.ConditionBlocks>
+                    </ui:IfElseIf>
                   </Sequence>
                 </ActivityAction>
               </ui:ForEach.Body>
@@ -171,7 +287,7 @@
       </ui:TriggerScope.Action>
       <ui:TriggerScope.Triggers>
         <scg:List x:TypeArguments="Activity" Capacity="4">
-          <ui:FileChangeTriggerV3 FileNameFilter="{x:Null}" IncludeSubdirectories="{x:Null}" ChangeType="Changed" DisplayName="File Change Trigger" sap:VirtualizedContainerService.HintSize="891,180" sap2010:WorkflowViewState.IdRef="FileChangeTriggerV3_1" NotifyFilters="Size" Path=".\QueueItems.txt">
+          <ui:FileChangeTriggerV3 FileNameFilter="{x:Null}" IncludeSubdirectories="{x:Null}" ChangeType="Changed" DisplayName="File Change Trigger" sap:VirtualizedContainerService.HintSize="705,183" sap2010:WorkflowViewState.IdRef="FileChangeTriggerV3_1" NotifyFilters="Size" Path=".\QueueItems.txt">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
