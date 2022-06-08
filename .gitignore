@@ -4,6 +4,6 @@
 .screenshots/
 .settings/
 build/
-QueueItems.txt
+CommandQueue.html
 *.spec
 ~*
