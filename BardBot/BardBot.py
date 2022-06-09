@@ -53,7 +53,7 @@ def output_html(command, arg):
 def run_local_webserver():
     print('[BardBot] Starting local webserver.')
     output_html('', '')
-    subprocess.call('python -m http.server --bind localhost 8888')
+    subprocess.call('py -m http.server --bind localhost 8888')
 
 def run_discord_bot():
     print('[BardBot] Starting Discord connection.')
