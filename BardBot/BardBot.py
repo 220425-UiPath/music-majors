@@ -17,7 +17,9 @@ async def on_message(message):
     messageContents = message.content
     print(f'{message.author}: {messageContents}')
 
-    if messageContents.startswith('!!'):
+    if messageContents == '!!help' or messageContents == '!!commands':
+        await message.channel.send('Available commands:\n!!play <YouTube URL>\n!!pause\n!!resume\n!!skip\n!!volume <Volume level between 0-100>')
+    elif messageContents.startswith('!!'):
         process_command(messageContents)
 
 def process_command(command):
