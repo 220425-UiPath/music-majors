@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
     <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>396,319.333333333333</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1208,1471</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -31,6 +31,17 @@
       <x:String>UiPath.Core</x:String>
       <x:String>UiPath.Core.Activities</x:String>
       <x:String>System.Windows.Markup</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>System.Activities.DynamicUpdate</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Security</x:String>
+      <x:String>System.ComponentModel</x:String>
     </sco:Collection>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
@@ -53,15 +64,70 @@
       <AssemblyReference>Microsoft.VisualStudio.Services.Common</AssemblyReference>
       <AssemblyReference>UiPath.System.Activities</AssemblyReference>
       <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>NPOI</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="376,259.333333333333" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="476,1366" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
         <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:Comment DisplayName="Comment (placeholder)" sap:VirtualizedContainerService.HintSize="334,55.3333333333333" sap2010:WorkflowViewState.IdRef="Comment_1" Text="//  Invoke steps of the process" />
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Application: VLC media player" sap:VirtualizedContainerService.HintSize="434,1187" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="aa364b95-8ee4-416a-885b-dd07ef518cdf" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,898" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Media Alt+M'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="aa364b95-8ee4-416a-885b-dd07ef518cdf" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="8, 31, 49, 20" FriendlyName="'Media Alt+M'" FullSelectorArgument="&lt;ctrl name='Media Alt+M' role='menu item' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Media Alt+M' role='menu item' automationid='' check:text='Media Alt+M' /&gt;" Guid="394865cd-11c7-4221-b7ab-d84e5a850c01" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAADUAAAAYCAYAAABa1LWYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAE0SURBVFhH7ZSNrcMgDIS7/xSswAgegRHYAGUBiuGcOFZRyfupaMtJKIL04D7s5ibKHyQgLajpBaQFNb2AtKCmF5C+Fipmci47ipiflYLPzvkcEhaGxHvCk0L2l/2PBaRRKJ+9f3QwgH8D9YcC0jgUUQGzKSKVCtIPAk4CFRI/qcxEKYdaPROwthNXj4f6vVr3ISjP2R9JvGV0Wr4nIF2Bagfu53BIHwqaDmUASyVbdXn98J7/h8azq7feF5CuQR0gnFdCmvdyy/q2la9JBzbhuaV3/yugpOWiDmmhdItCo1Anv7R3nQwJSFeheNpu8vho2ID6naitP20/3lvgK+CroOoN6mqY9zWMaT+Waqv+h4L3hq+cQf9XqfcRkBbU9ALSgppeQGpQ27Z9xABSg+LH+49bvgNpvQQLVb5qBgAAAABJRU5ErkJggg==" InformativeScreenshot="38ccb991a699412b111aea890de651ee.png" ScopeSelectorArgument="&lt;wnd app='vlc.exe' cls='Qt5QWindowIcon' title='VLC media player' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Open Network'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="aa364b95-8ee4-416a-885b-dd07ef518cdf" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="3, 91, 309, 22" FriendlyName="'Open Network'" FullSelectorArgument="&lt;ctrl name='Open Network Stream... Ctrl+N' role='menu item' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Open Network Stream... Ctrl+N' role='menu item' automationid='' check:text='Open Network Stream... Ctrl+N' /&gt;" Guid="fe9e18f8-7cc1-4101-b3c5-fe746ccc3b65" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAATkAAAAaCAYAAADMrivdAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQySURBVHhe7Zo7btwwEIb3AslxdB4huYL7IC+sgTRBAneGcwB1rnwDd6rc+RLGXoDh8CU+hhS59tor+i8+QCSHQ5Ez/EmtvTscDoJ4enoCAICuIG2DyAEAugUiBwDoGogcAKBrIHIAgK6ByAEAuqYocnd3d+L6+jogtonbqU9sAwAAb0VR5Ei0xNUHx83fH4nNzZ/vgQ31iW0AAOCtgMgBALrmPEVuGsVut3MM+5m3e3EmMdKY48TUD2I/+3WvTeU7BGs3iomzARthFvth2Qe7YS9m1i6mJV/POedfhlWRI2GzfPv6JbGhOt/m2SKnNqm/uDrQryN0OrCDHG+c0vpywE+dFBX+570YfGGT5b2aRz8J+25QsYzysDqeLfHWtsfl/DYoipzl8vJSPD4+sm0EtZEN19aGFrRwsSXx5j0ZJrCTHC84NWsCfuqkqPBPBwR72veTsO+DzD5wrMWzJd7G9qic3wZFkaNb2cXFRRPPusllxYyCbhfcC4q5xge3PHMChp9rps9++ZTjb4ZLYKfRt4kCnoxB7bYskVd/6r8kKdPffh4EvtI+4zh4Y1gfZjz2EyOem7G1qD6xb2nHrpteh7Cv9SnfxYsBvfe8J3+6/Do3705RsVhiEFITTxMfm28K2kOcz8W2mPMb5vxEjr2J+CebCbK1Uwnhb34vMPJmo4Nm+thNqj6JywGve5YEY4T1/niDFGmbQCQG/ns5YUvmwiXd2imv263w6Lro3bK+Tbubk7WPbXR/FwO1np4/Vc5tUrBKdh9YGuOpWBe5/PO2KYpcjtvbWwXX9iyyJxgFKL/47tak+usNzp10S59cAKN6J1Refe0YXqJO8oRdPge8uTDzXW6A/DvTbyepADGY9yz5Ct6VnZNsMwKmsX1W/CVl0ASTFyEN68/FVpI9ALmcV3bbpUnk7u/vxe9fPwX9RZWgZ6rjbI8jc0sJgh4vvtcnmxyFJCjaWd9effUYVsxkvRM32Y/621Oa8VUWOSlw0qcToBXU5yObsFE5N6eg3s6Hnlf8JWXQhpfTbPsx62/yz5Utsa0du58YNovcfPPJ/bvI/O/zC4ucJPnUocWOr+JeOdiIsa0lDlgugEy98h/fYmrGMJ+lUhisLZXH0f8U1L5cMidz4d85/O3EQ94WF3udrNou72spMz4pFoEg2z41/jjb3DNIMDfoQOhkDPi/rq6ViVqRkyQ5v23OT+SI4BMpPtF0UPSPrEy7C5Ch5ibj4Ov1D+pePTuGFh+/HAoDU058+W2ld9YClv4llWysL4l34wvfjZknOyczDpXlBhmPusnVPAOWOCZevMvxbFlb3jbJ+Q3TLnJS2MTVR8XJRK4INgcAoJ4mkXt4eFB/PfWhOs72dEDkAAD1NInceQCRAwDUs0GRAwCAeiByAICugcgBALoGIgcA6BqIHACgaw6Hg/gPd/uHGCcJXwUAAAAASUVORK5CYII=" InformativeScreenshot="0cb72c8c083baa94e79e651532e89a96.png" ScopeSelectorArgument="&lt;wnd app='vlc.exe' cls='Qt5QWindowIcon' title='VLC media player' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="None" DisplayName="Type Into 'Please enter'" EmptyFieldMode="SingleLine" sap:VirtualizedContainerService.HintSize="334,216" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="WindowMessages" ScopeIdentifier="aa364b95-8ee4-416a-885b-dd07ef518cdf" Text="[in_TransactionItem.SpecificContent(&quot;Song_URL&quot;).ToString]" Version="V1">
+              <uix:NTypeInto.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="43, 121, 440, 14" ElementType="InputBox" FriendlyName="'youtube'" FullSelectorArgument="&lt;ctrl name='Network Protocol' role='grouping' /&gt;&lt;ctrl name='Network Protocol Down' role='combo box' /&gt;&lt;ctrl role='editable text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Network Protocol' role='grouping' /&gt;&lt;ctrl name='Network Protocol Down' role='combo box' /&gt;&lt;ctrl role='editable text' automationid='' /&gt;" Guid="4ada2573-8c27-4807-980d-3a77ea730bd1" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAbwAAAASCAYAAAAg0Wv1AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAGMSURBVHhe7doxboMwFIBhzpUD5Qy9RZRb5ASM2bsjdUDKliGK1IEp2ys2NnmYB2otJUXy/0lWwDgm2y8iKgEAoAAEDwBQBIIHACjCLHjVx9e2R0WjAQB/R/AAAEX43+Ad79Le7rKzri0NggcAyPC64P0mZgQPAPAmBA8AUIRZPQ43kfoUA3OVWh5yOPbHLk5hjUgne3c9DdZ4fvH7RO3nt73Of3ZSj2vDveKaMDuZJ3gAgAzzJ7xTJ9Jch7iMxy58zxDuzo9hfjF4K8f63H2qmPl9/Tp3vxDV9PsEDwCQYR48FZt9EyJnBcutsebj+dKxPrfm477h9zyFABI8AEAGI3gxdOopay1MVsjWjvW5NW/tqwfBAwBkMIM3hEekPV9CaFb+0oxRjPM6cjqY1rokbOO+yf0mg+ABADLYwfMvnagXRdwIERwk8QrappsEzD0p+vk+nOa6yZ499d3p/XrxGsEDAGSwg+deVtHx2dIgeACADGbwxpdV0thsYRA8AEAG6gEAKALBAwAUQOQHTXuUNcPvXMAAAAAASUVORK5CYII=" InformativeScreenshot="cc1535f1518157c9b7872eb432084726.png" IsResponsive="True" ScopeSelectorArgument="&lt;wnd app='vlc.exe' cls='Qt5QWindowIcon' title='Open Media' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Visibility="Interactive">
+                  <uix:TargetAnchorable.Anchors>
+                    <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                      <uix:Target DesignTimeRectangle="40, 99, 462, 13" ElementType="Text" FriendlyName="'Please enter'" FullSelectorArgument="&lt;ctrl name='Network Protocol' role='grouping' /&gt;&lt;ctrl name='Please enter a network URL:' role='text' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Network Protocol' role='grouping' /&gt;&lt;ctrl name='Please enter a network URL:' role='text' automationid='' check:text='Please enter a network URL:' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAdIAAAARCAYAAABpay2YAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALQSURBVHhe7ZphjuMgDEZzrhwol5hL5DT9s0fpYVhMMDUOptmpqulo35OqAWOMSSV/hcySAAAA4NsgpAAAAC+AkAIAALwAQgoAAPACcyG972ld93SvXfhh+D4AAD6OJqTrsqSlfbZ0E+NvKNyfmuM78noWczSuNvnbfcdr2tXxHbkCAPwnPITUFtLblhYtvp9eYD81x3fk9SzmaFxtfkz6v+kHEwDAhzIW0lxeNymytsCWwns+zdz3dXjK6exPYnSMfGoe+6b2JW2HAqR9fdhWcX46v4qHIdpDI1y/jp3mury+vtxz1BzEz4hZi9MLXMu79ksc+bHjc7XjitpOY/U7luZoniD20fMAAIDGUEiLsHTF1xRdISq8UtxFYUoBfvjfNmlfiRH4lHhGvPTELO0uzsX5M3QPlnD9yZ6CvOTZbvl5HLGyvcV5xC/PXzp+XY1Z7GZdpVuzYufYsfAZGso6CCkAwIzxO1JfYEtBNePlUwu5HytzD2HoTn+zGErko3lUt5bXqH1lvsfP875+vvaj9axPmSC6dQhS+VEhYyqU+tfHj/Zt1/B4f0FtbW79+Lh+HgAAXCK42q3YIhyN2xPLyc8I6pViPVvH2m0/alsiuyBj0z1kvE37z+KasXISvekJtF7p5lNhOW2O4kdCmvs3PbF6vL+gNjsmbSvGo3kAAHCJa0JaBfFUu10BtlfC20OZsmiIUAUxOq6t0/Wl3UTh4nyLG2t7qP1CuP5kT11emdzf8nMo73FLN4toPp0e3T5Od7U7XFdOtvWdcIfE6a9iw1hytav5+TFF7FztAgBMuSiktZ2Lvb8alIKutjULw+F/CEOzayUOYnSMfGwegutrDud/NgrmO8Z7MMzWH61XnFxeXuTsO0qhixMIXNc/nvFJTKN8fKxMEVnJ6Y+bY9dHSAEApjQhBQAAgH8HIQUAAHgBhBQAAOAFEFIAAIBvk9Jf7Hup0vP0ll0AAAAASUVORK5CYII=" SearchSteps="Selector, FuzzySelector, Image" />
+                    </scg:List>
+                  </uix:TargetAnchorable.Anchors>
+                </uix:TargetAnchorable>
+              </uix:NTypeInto.Target>
+            </uix:NTypeInto>
+            <uix:NClick ClickType="Single" DisplayName="Click 'Play Alt+P'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NClick_3" InteractionMode="HardwareEvents" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="aa364b95-8ee4-416a-885b-dd07ef518cdf" Version="V1">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="374, 397, 70, 23" ElementType="Button" FriendlyName="'Play Alt+P'" FullSelectorArgument="&lt;ctrl name='Play Alt+P' role='menu button' /&gt;" FuzzySelectorArgument="&lt;ctrl name='Play Alt+P' role='menu button' automationid='' check:text='Play Alt+P' /&gt;" Guid="c6e21f54-764a-4bc9-b4cd-7777ae5ef9d5" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAEoAAAAbCAYAAADbAhkjAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAEpSURBVGhD7ZaNDYQgDEbZiW1YhlVYwCEYxQ3coEe9qxYEJeJfvJq8BGkVffkkqmEYQNhGRFUioiqJRHVdJzC4m4Wovu+FwF+KwsM5l62VEFGViKhKRFQl94nyFrS24HO1k3mmKBSiFKgJA47mRRQjFeIMKDwXUQkLIQ4MporNe6tZ4jRYj30erFZgHL+Oam2koua1l1DP5aJGKWuJwsSZ30uUxo2kopA1Scg1ovgDkBwuqtRD6QtjZ3i62siJQqb1A2nt8kQt5kdJ7JNK+r+CZmHRPXZSEoXkJCHPEMXq06fJ+8LDa+vj6xtYE1XiflFhjKmhyGtjkn7c1I/ZxIlnimqFfidytZ28UtSRmzjxSlFnIKIqEVEnsilKmOFuIlFCGRFViYiqYoAPa/WXrNXnNugAAAAASUVORK5CYII=" InformativeScreenshot="00277a597ec59069987b3627e3bbf27d.png" ScopeSelectorArgument="&lt;wnd app='vlc.exe' cls='Qt5QWindowIcon' title='Open Media' /&gt;" SearchSteps="Selector, FuzzySelector, Image" Visibility="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="0, 0, 0, 0" FilePath="[in_Config(&quot;VLCPath&quot;).ToString]" IconBase64="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" InformativeScreenshot="01a92b2e2dceeae0be5e377547950da2.png" Selector="&lt;wnd app='vlc.exe' cls='Qt5QWindowIcon' title='VLC media player' /&gt;" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
   </Sequence>
 </Activity>
