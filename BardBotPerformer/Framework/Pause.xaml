@@ -122,7 +122,7 @@
               <x:Boolean x:Key="IsExpanded">True</x:Boolean>
             </scg:Dictionary>
           </sap:WorkflowViewStateService.ViewState>
-          <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Application: Kendrick Lamar - Kendrick Lamar - Silent Hill ft. Kodak Black (Official Audio) - VL" sap:VirtualizedContainerService.HintSize="434,539" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="c2438243-053e-4912-93e8-82f34dfea47b" Version="V2">
+          <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Application: Kendrick Lamar - Kendrick Lamar - Silent Hill ft. Kodak Black (Official Audio) - VL" sap:VirtualizedContainerService.HintSize="434,539" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="c2438243-053e-4912-93e8-82f34dfea47b" Version="V2">
             <uix:NApplicationCard.Body>
               <ActivityAction x:TypeArguments="x:Object">
                 <ActivityAction.Argument>
