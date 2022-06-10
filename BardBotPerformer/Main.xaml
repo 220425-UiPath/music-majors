@@ -1,14 +1,14 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:av="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:mva="clr-namespace:Microsoft.VisualBasic.Activities;assembly=System.Activities" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
     <x:Property sap2010:Annotation.AnnotationText="Allows the Orchestrator queue name to be passed as an argument, instead of only being defined in the configuration file." Name="in_OrchestratorQueueName" Type="InArgument(x:String)" />
   </x:Members>
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1283,1458</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1180,1458</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Main2_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
-    <sco:Collection x:TypeArguments="x:String">
+    <scg:List x:TypeArguments="x:String" Capacity="41">
       <x:String>System.Activities</x:String>
       <x:String>System.Activities.Statements</x:String>
       <x:String>System.Activities.Expressions</x:String>
@@ -43,10 +43,17 @@
       <x:String>UiPath.Platform.Triggers</x:String>
       <x:String>UiPath.Platform.Triggers.Scope</x:String>
       <x:String>System.Runtime.Serialization</x:String>
-    </sco:Collection>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities.Models</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>System.ComponentModel</x:String>
+    </scg:List>
   </TextExpression.NamespacesForImplementation>
   <TextExpression.ReferencesForImplementation>
-    <sco:Collection x:TypeArguments="AssemblyReference">
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="36">
       <AssemblyReference>System.Activities</AssemblyReference>
       <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
@@ -79,7 +86,11 @@
       <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
-    </sco:Collection>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities</AssemblyReference>
+    </scg:List>
   </TextExpression.ReferencesForImplementation>
   <StateMachine InitialState="{x:Reference __ReferenceID3}" sap2010:Annotation.AnnotationText="[Process title]&#xA;[Process description]&#xA;[Additional information (e.g., author, contact information and applications involved and required external setup)]" DisplayName="General Business Process" sap:VirtualizedContainerService.HintSize="918,1393" sap2010:WorkflowViewState.IdRef="StateMachine_1">
     <sap:WorkflowViewStateService.ViewState>
@@ -628,71 +639,314 @@
                   </Transition.Action>
                   <Transition.Condition>[SystemException Is Nothing And BusinessException is Nothing]</Transition.Condition>
                 </Transition>
-                <Transition DisplayName="T1" sap:VirtualizedContainerService.HintSize="450,505" sap2010:WorkflowViewState.IdRef="Transition_11">
+                <Transition DisplayName="T1" sap:VirtualizedContainerService.HintSize="496,911" sap2010:WorkflowViewState.IdRef="Transition_14">
+                  <Transition.Trigger>
+                    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Firefox: localhost:8888/CommandQueue.html" sap:VirtualizedContainerService.HintSize="434,466" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" ScopeGuid="d03060f0-f3e4-4cfd-b43f-7ba3d359a386" Version="V2">
+                      <uix:NApplicationCard.Body>
+                        <ActivityAction x:TypeArguments="x:Object">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,250" sap2010:WorkflowViewState.IdRef="Sequence_35">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <uix:NGetText DisplayName="Get Text '.livejs-loading *'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NGetText_2" ScopeIdentifier="d03060f0-f3e4-4cfd-b43f-7ba3d359a386" Version="V1">
+                              <uix:NGetText.Target>
+                                <uix:TargetAnchorable BrowserURL="http://localhost:8888/CommandQueue.html" DesignTimeRectangle="14, 102, 1268, 18" ElementType="Text" FriendlyName="'pause'" FullSelectorArgument="&lt;webctrl tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='P' type='' class='' /&gt;" Guid="a9e7ec4b-0f50-427a-b315-6b514a063c25" InformativeScreenshot="13994388cea392654c26c77b3ecfbdc1.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='localhost:8888/CommandQueue.html' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                      <uix:Target DesignTimeRectangle="6, 86, 1284, 50" FriendlyName="'.livejs-loading *'" FullSelectorArgument="&lt;webctrl tag='HTML' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='HTML' type='' class='' aaname='   ' check:innerText='pause' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAABQgAAAA2CAYAAACLKHQUAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAANMSURBVHhe7d1BbtNAGIZhH6BsWHWTFrmiQnQVoahSNxzACy4A1zCrIu6SC+VGg8f2ONNm07rZlP95pE9KHMfsX01Dc339KV1eXqa7r9/MzMzMzMzMzMwsyHIT3Gyu0hIILy4+mJmZmZmZmZmZWZBVgfDX+AYAAAAAiGMJhD/nE4QAAAAAQBxLIPz9XSAEAAAAgGgEQgAAAAAITCAEAAAAgMAEQgAAAAAIbAmE1/6TEgAAAAAIRyAEAAAAgMAEQgAAAAAITCAEAAAAgMAEQgAAAAAITCAEAAAAgMAEQgAAAAAITCAEAAAAgMAEQgAAAAAITCAEAAAAgMAEQgAAAAAITCAEAAAAgMCWQLjbPQiEAAAAABBMboLb7X1qbm+/CIQAAAAAEExugjc3nwVCAAAAAIhIIAQAAACAwARCAAAAAAhMIAQAAACAwFYFwn3XpKbbp0PfpqYZXg8b3i7q63ltf8hXU9/O1+abl/vafvh0slwbn9+l8auzJ8+tvgMAAAAArLMEwt3u4QWBsIp8w6bwNwfDpp1i3qFPbXk9vs1Rr0tzEpy+X9XE8fMS+/J3y+t9d3zmIN9X/r2sREoAAAAAYL0VJwhPI19K+9RVwbCYwmHeKwLhcP9p95uev5weXFaeCwAAAACscaZAOF0rgbD8KfB4y3gS8IWBcHCMivV9ORAeTxMCAAAAAOdx1hOEp0Fw8MpAWJTION1bPR8AAAAAOJv1gbCKgE8i37PfDpxOBB7vHd8vQbD60+F8Lf+J8fN4OL+fguHTU4T7/jQsAgAAAAAv94YThF31u4DVicE6+g3rhvum13Pcm39nsHyvr+Pi8FnXzicH58+Pzy2x8TgnCgEAAADgbd4QCNU5AAAAAHjvBEIAAAAACOyVgbD8/uA8kRAAAAAA3rUVJwgBAAAAgP+FQAgAAAAAgQmEAAAAABDYEggfH/8IhAAAAAAQjBOEAAAAABCYQAgAAAAAgQmEAAAAABCYQAgAAAAAgQmEAAAAABCYQAgAAAAAgQmEAAAAABCYQAgAAAAAgeUm+PHHX4EQAAAAACISCAEAAAAgsNwEt9t7gRAAAAAAIspNcLO5EggBAAAAICKBEAAAAAACEwgBAAAAILApEF6lf1+MgX1nPB3EAAAAAElFTkSuQmCC" SearchSteps="FuzzySelector" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NGetText.Target>
+                              <uix:NGetText.Text>
+                                <OutArgument x:TypeArguments="x:String">[chat]</OutArgument>
+                              </uix:NGetText.Text>
+                            </uix:NGetText>
+                          </Sequence>
+                        </ActivityAction>
+                      </uix:NApplicationCard.Body>
+                      <uix:NApplicationCard.TargetApp>
+                        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Firefox" IconBase64="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" InformativeScreenshot="ad85b35a19ec82a1213d917ffc574523.png" Selector="&lt;html app='firefox.exe' title='localhost:8888/CommandQueue.html' /&gt;" Url="http://localhost:8888/CommandQueue.html" />
+                      </uix:NApplicationCard.TargetApp>
+                    </uix:NApplicationCard>
+                  </Transition.Trigger>
                   <sap:WorkflowViewStateService.ViewState>
                     <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                      <av:PointCollection x:Key="ConnectorLocation">338.45,863.5 338.45,893.5 320.75,893.5 320.75,978.5</av:PointCollection>
-                      <x:Int32 x:Key="SrcConnectionPointIndex">35</x:Int32>
+                      <av:PointCollection x:Key="ConnectorLocation">280.7,863.5 280.7,893.5 204.5,893.5 204.5,659.5 73.3,659.5 73.3,689.5</av:PointCollection>
+                      <x:Int32 x:Key="SrcConnectionPointIndex">15</x:Int32>
                       <x:Int32 x:Key="DestConnectionPointIndex">34</x:Int32>
                     </scg:Dictionary>
                   </sap:WorkflowViewStateService.ViewState>
                   <Transition.Condition>
-                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="SystemException Is Nothing And BusinessException is Nothing" />
+                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="chat = &quot;pause&quot;" />
                   </Transition.Condition>
                   <Transition.To>
-                    <State x:Name="__ReferenceID4" DisplayName="Playback Functions" sap:VirtualizedContainerService.HintSize="185,123" sap2010:WorkflowViewState.IdRef="State_6">
+                    <State x:Name="__ReferenceID4" DisplayName="Pause State" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_8">
                       <State.Entry>
-                        <Sequence sap:VirtualizedContainerService.HintSize="376,660" sap2010:WorkflowViewState.IdRef="Sequence_33">
-                          <sap:WorkflowViewStateService.ViewState>
-                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                            </scg:Dictionary>
-                          </sap:WorkflowViewStateService.ViewState>
-                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_26" UnSafe="False" WorkflowFileName="Framework\Pause.xaml">
-                            <ui:InvokeWorkflowFile.Arguments>
-                              <scg:Dictionary x:TypeArguments="x:String, Argument" />
-                            </ui:InvokeWorkflowFile.Arguments>
-                          </ui:InvokeWorkflowFile>
-                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_27" UnSafe="False" WorkflowFileName="Framework\Resume.xaml">
-                            <ui:InvokeWorkflowFile.Arguments>
-                              <scg:Dictionary x:TypeArguments="x:String, Argument" />
-                            </ui:InvokeWorkflowFile.Arguments>
-                          </ui:InvokeWorkflowFile>
-                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_28" UnSafe="False" WorkflowFileName="Framework\Skip.xaml">
-                            <ui:InvokeWorkflowFile.Arguments>
-                              <scg:Dictionary x:TypeArguments="x:String, Argument" />
-                            </ui:InvokeWorkflowFile.Arguments>
-                          </ui:InvokeWorkflowFile>
-                          <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_29" UnSafe="False" WorkflowFileName="Framework\Volume.xaml">
-                            <ui:InvokeWorkflowFile.Arguments>
-                              <scg:Dictionary x:TypeArguments="x:String, Argument" />
-                            </ui:InvokeWorkflowFile.Arguments>
-                          </ui:InvokeWorkflowFile>
-                        </Sequence>
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_30" UnSafe="False" WorkflowFileName="Framework\Pause.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ui:InvokeWorkflowFile.Arguments>
+                        </ui:InvokeWorkflowFile>
                       </State.Entry>
                       <sap:WorkflowViewStateService.ViewState>
                         <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <av:Point x:Key="ShapeLocation">237.5,978.5</av:Point>
-                          <av:Size x:Key="ShapeSize">185,123</av:Size>
+                          <av:Point x:Key="ShapeLocation">13,689.5</av:Point>
+                          <av:Size x:Key="ShapeSize">134,61</av:Size>
                           <x:Boolean x:Key="IsPinned">False</x:Boolean>
-                          <x:Double x:Key="StateContainerWidth">151</x:Double>
-                          <x:Double x:Key="StateContainerHeight">87.000000000000114</x:Double>
                         </scg:Dictionary>
                       </sap:WorkflowViewStateService.ViewState>
                       <State.Transitions>
-                        <Transition DisplayName="T2" sap:VirtualizedContainerService.HintSize="450,505" sap2010:WorkflowViewState.IdRef="Transition_10">
+                        <Transition DisplayName="T2" sap:VirtualizedContainerService.HintSize="496,911" sap2010:WorkflowViewState.IdRef="Transition_13">
+                          <Transition.Trigger>
+                            <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Firefox: localhost:8888/CommandQueue.html" sap:VirtualizedContainerService.HintSize="434,466" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="Simulate" ScopeGuid="d03060f0-f3e4-4cfd-b43f-7ba3d359a386" Version="V2">
+                              <uix:NApplicationCard.Body>
+                                <ActivityAction x:TypeArguments="x:Object">
+                                  <ActivityAction.Argument>
+                                    <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                                  </ActivityAction.Argument>
+                                  <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,250" sap2010:WorkflowViewState.IdRef="Sequence_34">
+                                    <sap:WorkflowViewStateService.ViewState>
+                                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                      </scg:Dictionary>
+                                    </sap:WorkflowViewStateService.ViewState>
+                                    <uix:NGetText DisplayName="Get Text '.livejs-loading *'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="d03060f0-f3e4-4cfd-b43f-7ba3d359a386" Version="V1">
+                                      <uix:NGetText.Target>
+                                        <uix:TargetAnchorable BrowserURL="http://localhost:8888/CommandQueue.html" DesignTimeRectangle="16, 109, 1904, 18" ElementType="Text" FriendlyName="'play'" FullSelectorArgument="&lt;webctrl tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='P' type='' class='' /&gt;" Guid="5fca67ea-1ec5-498f-ac88-32fc522e9712" InformativeScreenshot="946ca88a6458096c6b34ed327e3f977c.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='localhost:8888/CommandQueue.html' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                                          <uix:TargetAnchorable.Anchors>
+                                            <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                              <uix:Target DesignTimeRectangle="8, 93, 1920, 50" FriendlyName="'.livejs-loading *'" FullSelectorArgument="&lt;webctrl tag='HTML' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='HTML' type='' class='' aaname='   ' check:innerText='resume' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAB4QAAAA2CAYAAAAvfSRaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAQQSURBVHhe7dzLbdtAGIVRFeA0wWWyTBnqhw2pIXfEkHNnRFJObAdONr/OAS4siQ9p/4G+rJZtP77/NDMzMzMzMzMzMzMzMzOzAttC8NCC8MvLNzMzMzMzMzMzMzMzMzMzK7Ck4GhBGAAAAAAAAIAakoJDEAYAAAAAAAAoJCk4BGEAAAAAAACAQpKCQxAGAAAAAAAAKCQpOARhAAAAAAAAgEKSgkMQBgAAAAAAACgkKTgEYQAAAAAAAIBCkoJDEAYAAAAAAAAoJCk4BGEAAAAAAACAQpKCQxAGAAAAAAAAKCQpOARhAAAAAAAAgEKSgkMQBgAAAAAAACgkKTgEYQAAAAAAAIBCkoJDEAYAAAAAAAAoJCk4BGEAAAAAAACAQpKCQxAGAAAAAAAAKCQpOARhAAAAAAAAgEKSgkMQBgAAAAAAACgkKTgEYQAAAAAAAIBCkoJDEAYAAAAAAAAoJCk4BGEAAAAAAACAQpKCQxAGAAAAAAAAKCQpOARhAAAAAAAAgEKSgkMQBgAAAAAAACgkKTg+GYRfl3laz73O+btec731I/PU3rdN83rmcFuu7fNpmV/X1+2C8dllmeacebv2a8cN+znb8f3e2z22Q9f+fv/+6L+vHxv3BgAAAAAAAHg2l4MWUN93jK09zHZbsD3G1xZ3e6ndXufliMlvg++wX7cH42055/D9/R4tFN/j83b8+Ltyj/vXAQAAAAAAADyRy0ELrR97jLqbc7zdd12P9Mh7emJ4eC8It3cfHO9BuH/PevDh+/sUYQAAAAAAAOAJXQ5aPP3Yn4Lw+Ynhk9d5me6B9u0TvP80CP82PAMAAAAAAAA8n1aCuy8G4c/8a+act0fh/xCEx2sAAAAAAACAJ5cUHF8IwiPMnp8Svs15Wvd2fXwqeLx/uNfxSeL22V8G4XG/01PCt2U+/igAAAAAAACAJ9FKcPeJINyD6yna7lqsHcfWjcNbEJ4O1x0Db57q7cemeZnvwXc8Tbxfc7r/eu6txeDx2YjC5+s8MQwAAAAAAAA8q8tBC6gAAAAAAAAA1JAUHIIwAAAAAAAAQCFJwSEIAwAAAAAAABSSFByCMAAAAAAAAEAhScEhCAMAAAAAAAAUkhQcgjAAAAAAAABAIUnBIQgDAAAAAAAAFJIUHIIwAAAAAAAAQCFJwSEIAwAAAAAAABSSFByCMAAAAAAAAEAhScEhCAMAAAAAAAAUkhQcgjAAAAAAAABAIUnBIQgDAAAAAAAAFJIUHIIwAAAAAAAAQCFJwSEIAwAAAAAAABSSFByCMAAAAAAAAEAhScEhCAMAAAAAAAAUkhQcgjAAAAAAAABAIUnBIQgDAAAAAAAAFJIUHIIwAAAAAAAAQCFJwSEIAwAAAAAAABSSFHy5/AJX1f6iebRePQAAAABJRU5ErkJggg==" SearchSteps="FuzzySelector" />
+                                            </scg:List>
+                                          </uix:TargetAnchorable.Anchors>
+                                        </uix:TargetAnchorable>
+                                      </uix:NGetText.Target>
+                                      <uix:NGetText.Text>
+                                        <OutArgument x:TypeArguments="x:String">[chat]</OutArgument>
+                                      </uix:NGetText.Text>
+                                    </uix:NGetText>
+                                  </Sequence>
+                                </ActivityAction>
+                              </uix:NApplicationCard.Body>
+                              <uix:NApplicationCard.TargetApp>
+                                <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Firefox" IconBase64="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" InformativeScreenshot="ad85b35a19ec82a1213d917ffc574523.png" Selector="&lt;html app='firefox.exe' title='localhost:8888/CommandQueue.html' /&gt;" Url="http://localhost:8888/CommandQueue.html" />
+                              </uix:NApplicationCard.TargetApp>
+                            </uix:NApplicationCard>
+                          </Transition.Trigger>
                           <sap:WorkflowViewStateService.ViewState>
                             <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                              <av:PointCollection x:Key="ConnectorLocation">256,1101.5 256,1114.8 204.5,1114.8 204.5,844.8 234.5,844.8</av:PointCollection>
-                              <x:Int32 x:Key="SrcConnectionPointIndex">7</x:Int32>
-                              <x:Int32 x:Key="DestConnectionPointIndex">69</x:Int32>
+                              <av:PointCollection x:Key="ConnectorLocation">80,750.5 80,780.5 56.6,780.5 56.6,849.5</av:PointCollection>
+                              <x:Int32 x:Key="SrcConnectionPointIndex">39</x:Int32>
+                              <x:Int32 x:Key="DestConnectionPointIndex">30</x:Int32>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Transition.Condition>
+                            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="chat = &quot;resume&quot;" />
+                          </Transition.Condition>
+                          <Transition.To>
+                            <State x:Name="__ReferenceID5" DisplayName="Resume State" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_7">
+                              <State.Entry>
+                                <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_31" UnSafe="False" WorkflowFileName="Framework\Resume.xaml">
+                                  <ui:InvokeWorkflowFile.Arguments>
+                                    <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                                  </ui:InvokeWorkflowFile.Arguments>
+                                </ui:InvokeWorkflowFile>
+                              </State.Entry>
+                              <sap:WorkflowViewStateService.ViewState>
+                                <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                  <av:Point x:Key="ShapeLocation">3,849.5</av:Point>
+                                  <av:Size x:Key="ShapeSize">134,61</av:Size>
+                                  <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                                </scg:Dictionary>
+                              </sap:WorkflowViewStateService.ViewState>
+                              <State.Transitions>
+                                <Transition DisplayName="T3" sap:VirtualizedContainerService.HintSize="450,505" sap2010:WorkflowViewState.IdRef="Transition_12">
+                                  <sap:WorkflowViewStateService.ViewState>
+                                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                      <av:PointCollection x:Key="ConnectorLocation">76.7,910.5 76.7,938.7 204.5,938.7 204.5,788.7 234.5,788.7</av:PointCollection>
+                                      <x:Int32 x:Key="SrcConnectionPointIndex">43</x:Int32>
+                                      <x:Int32 x:Key="DestConnectionPointIndex">45</x:Int32>
+                                    </scg:Dictionary>
+                                  </sap:WorkflowViewStateService.ViewState>
+                                  <Transition.To>
+                                    <x:Reference>__ReferenceID1</x:Reference>
+                                  </Transition.To>
+                                  <Transition.Condition>
+                                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="chat = &quot;resume&quot;" />
+                                  </Transition.Condition>
+                                </Transition>
+                              </State.Transitions>
+                            </State>
+                          </Transition.To>
+                        </Transition>
+                      </State.Transitions>
+                    </State>
+                  </Transition.To>
+                </Transition>
+                <Transition DisplayName="T5" sap:VirtualizedContainerService.HintSize="496,911" sap2010:WorkflowViewState.IdRef="Transition_16">
+                  <Transition.Trigger>
+                    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Firefox: localhost:8888/CommandQueue.html" sap:VirtualizedContainerService.HintSize="434,466" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="Simulate" ScopeGuid="d03060f0-f3e4-4cfd-b43f-7ba3d359a386" Version="V2">
+                      <uix:NApplicationCard.Body>
+                        <ActivityAction x:TypeArguments="x:Object">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,250" sap2010:WorkflowViewState.IdRef="Sequence_36">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <uix:NGetText DisplayName="Get Text '50'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="d03060f0-f3e4-4cfd-b43f-7ba3d359a386" Version="V1">
+                              <uix:NGetText.Target>
+                                <uix:TargetAnchorable BrowserURL="http://localhost:8888/CommandQueue.html" DesignTimeRectangle="14, 102, 1268, 18" ElementType="Text" FriendlyName="'volume'" FullSelectorArgument="&lt;webctrl tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='P' type='' class='' /&gt;" Guid="e22f3301-f4ab-40bf-880d-5ee68a6b8a0b" InformativeScreenshot="5a4a9e86dad439e3461facb32da47a05.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='localhost:8888/CommandQueue.html' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                      <uix:Target DesignTimeRectangle="14, 136, 1268, 18" ElementType="Text" FriendlyName="'50'" FullSelectorArgument="&lt;webctrl id='arg' tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl id='arg' tag='P' type='' class='' aaname='       50     ' check:innerText='50' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAABPgAAAAWCAYAAABdRiJ7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAFrSURBVHhe7d3bjYUgFEBRarEd+qEhG7IjZmTwGvExfxdJ1kr8UKxg5wAhAwAAAADDEvgAAAAAYGACHwAAAAAMTOADAAAAgIEJfAAAAAAwMIEPAAAAAAZ2DnxLylMIOWxPnOvCnyVNn7VmCQAAAAD4slPgm2PMt91ujjmEbX3OUeQDAAAAgK6OgW9JOaalvrSWnKYm6K3Bb0q/KwAAAABAD4fAN8d9a+5pMq9s3Z3yof9dfQMAAAAAvub6ko2yFbc5f++wPXdjmy4AAAAA9HQd+Iom3gl8AAAAAPA6D4Gv3pi71burwFdv3BX4AAAAAKCPx8BXot5W75zBBwAAAACv8+8E3z6dd75Ft0z4uUUXAAAAALq5D3zrdF4b79aJvs835+8BAAAAQG974Kvn6ZXbc9fnZjKvTO3Vf8Q9AAAAAOjr+Qw+AAAAAODVBD4AAAAAGJjABwAAAAADE/gAAAAAYGACHwAAAAAMK+cfVvUOKrzKtKUAAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NGetText.Target>
+                              <uix:NGetText.Text>
+                                <OutArgument x:TypeArguments="x:String">[chat]</OutArgument>
+                              </uix:NGetText.Text>
+                            </uix:NGetText>
+                          </Sequence>
+                        </ActivityAction>
+                      </uix:NApplicationCard.Body>
+                      <uix:NApplicationCard.TargetApp>
+                        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Firefox" IconBase64="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" InformativeScreenshot="ad85b35a19ec82a1213d917ffc574523.png" Selector="&lt;html app='firefox.exe' title='localhost:8888/CommandQueue.html' /&gt;" Url="http://localhost:8888/CommandQueue.html" />
+                      </uix:NApplicationCard.TargetApp>
+                    </uix:NApplicationCard>
+                  </Transition.Trigger>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:PointCollection x:Key="ConnectorLocation">246.05,863.5 246.05,893.5 317,893.5 317,992.55 287,992.55</av:PointCollection>
+                      <x:Int32 x:Key="SrcConnectionPointIndex">3</x:Int32>
+                      <x:Int32 x:Key="DestConnectionPointIndex">0</x:Int32>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Transition.Condition>
+                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="chat = &quot;volume&quot;" />
+                  </Transition.Condition>
+                  <Transition.To>
+                    <State x:Name="__ReferenceID6" DisplayName="Volume State" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_9">
+                      <State.Entry>
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_32" UnSafe="False" WorkflowFileName="Framework\Volume.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ui:InvokeWorkflowFile.Arguments>
+                        </ui:InvokeWorkflowFile>
+                      </State.Entry>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">153,989.5</av:Point>
+                          <av:Size x:Key="ShapeSize">134,61</av:Size>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <State.Transitions>
+                        <Transition DisplayName="T6" sap:VirtualizedContainerService.HintSize="450,505" sap2010:WorkflowViewState.IdRef="Transition_15">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:PointCollection x:Key="ConnectorLocation">186.5,1050.5 186.5,1080.5 567,1080.5 567,660.5 207,660.5 207,770 234.5,770</av:PointCollection>
+                              <x:Int32 x:Key="SrcConnectionPointIndex">19</x:Int32>
+                              <x:Int32 x:Key="DestConnectionPointIndex">37</x:Int32>
                             </scg:Dictionary>
                           </sap:WorkflowViewStateService.ViewState>
                           <Transition.To>
                             <x:Reference>__ReferenceID1</x:Reference>
                           </Transition.To>
                           <Transition.Condition>
-                            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="SystemException Is Nothing And BusinessException is Nothing" />
+                            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="chat = &quot;volume&quot;" />
+                          </Transition.Condition>
+                        </Transition>
+                      </State.Transitions>
+                    </State>
+                  </Transition.To>
+                </Transition>
+                <Transition DisplayName="T7" sap:VirtualizedContainerService.HintSize="496,911" sap2010:WorkflowViewState.IdRef="Transition_18">
+                  <Transition.Trigger>
+                    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Firefox: localhost:8888/CommandQueue.html" sap:VirtualizedContainerService.HintSize="434,466" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="Simulate" ScopeGuid="d03060f0-f3e4-4cfd-b43f-7ba3d359a386" Version="V2">
+                      <uix:NApplicationCard.Body>
+                        <ActivityAction x:TypeArguments="x:Object">
+                          <ActivityAction.Argument>
+                            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                          </ActivityAction.Argument>
+                          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,250" sap2010:WorkflowViewState.IdRef="Sequence_37">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <uix:NGetText DisplayName="Get Text '.livejs-loading *'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="d03060f0-f3e4-4cfd-b43f-7ba3d359a386" Version="V1">
+                              <uix:NGetText.Target>
+                                <uix:TargetAnchorable BrowserURL="http://localhost:8888/CommandQueue.html" DesignTimeRectangle="16, 109, 1904, 18" ElementType="Text" FriendlyName="'skip'" FullSelectorArgument="&lt;webctrl tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='P' type='' class='' /&gt;" Guid="21965a64-3090-4c96-95fd-38b5819ba976" InformativeScreenshot="e210d7ae5e6398de99dec5c6c6003e04.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='localhost:8888/CommandQueue.html' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                                  <uix:TargetAnchorable.Anchors>
+                                    <scg:List x:TypeArguments="uix:ITarget" Capacity="1">
+                                      <uix:Target DesignTimeRectangle="8, 93, 1920, 50" FriendlyName="'.livejs-loading *'" FullSelectorArgument="&lt;webctrl tag='HTML' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='HTML' type='' class='' aaname='   ' check:innerText='skip' /&gt;" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAB4QAAAA2CAYAAAAvfSRaAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAPqSURBVHhe7d3hbZtQGIZRBkiX4Gf7s2OwjxfyQt6I+vICxiFtaJxYyqdzpFcJjsMCjy50V2Nb8+vnbzMzMzMzMzMzMzMzMzMz+8ZrWgherEH45eWHmZmZmZmZmZmZmZmZmZl94zVJwbEGYQAAAAAAAAC+v6TgEIQBAAAAAAAACkkKDkEYAAAAAAAAoJCk4BCEAQAAAAAAAApJCg5BGAAAAAAAAKCQpOAQhAEAAAAAAAAKSQoOQRgAAAAAAACgkKTgEIQBAAAAAAAACkkKDkEYAAAAAAAAoJCk4BCEAQAAAAAAAApJCg5BGAAAAAAAAKCQpOAQhAEAAAAAAAAKSQoOQRgAAAAAAACgkKTgEIQBAAAAAAAACkkKDkEYAAAAAAAAoJCk4BCEAQAAAAAAAApJCg5BGAAAAAAAAKCQpOAQhAEAAAAAAAAKSQoOQRgAAAAAAACgkKTgEIQBAAAAAAAACkkKjoeD8OXUX+8xjOf5eu8ynvpu7E+X+RoAAAAAAACAr5IUHA8F4cTgdo9/BWEAAAAAAAAAnmUqwbOHgnDz/glhAAAAAAAAAJ4lKTgEYQAAAAAAAIBCkoLjcBBeHw89nK+/D+PySuD7IHweh/merz+7/tvs9k7h87B8t1/vBwAAAAAAAMDHdRtTkH3X5TT2/Wmcmu15uAu4d0G4/W353uQWiBOEt8F4+SyB2CljAAAAAAAAgMd1G1OYfVcLwmvAvbcE4VP7+dYXdieEc91OCK/+cX8AAAAAAAAAjksKjmNB+Or2eOfrNuV2fZT0tLdO+R4IwrvvAAAAAAAAAPAR3cYUcv/H9l3Ct+sWgudHP989Mro5ekLYe4QBAAAAAAAAHjWV4NmxINyC7etTwbsg3Pz99O/ts1xvw/F0+tjxYAAAAAAAAICHJQXH4SA89PtHQ+8fFz3H3nnD+f46UXgOxMMwvTd4+tvuVDEAAAAAAAAAH9FtTEH2uV6fGAYAAAAAAADgsyQFhyAMAAAAAAAAUEhScDw5CL/1CGkAAAAAAAAAPksLwYsnB2EAAAAAAAAAvlJScAjCAAAAAAAAAIUkBYcgDAAAAAAAAFBIUnAIwgAAAAAAAACFJAWHIAwAAAAAAABQSFJwCMIAAAAAAAAAhSQFhyAMAAAAAAAAUEhScAjCAAAAAAAAAIUkBYcgDAAAAAAAAFBIUnAIwgAAAAAAAACFJAWHIAwAAAAAAABQSFJwCMIAAAAAAAAAhSQFhyAMAAAAAAAAUEhScAjCAAAAAAAAAIUkBYcgDAAAAAAAAFBIUnAIwgAAAAAAAACFJAWHIAwAAAAAAABQSFJwCMIAAAAAAAAAhSQFd90fWrOQjvbVF80AAAAASUVORK5CYII=" SearchSteps="FuzzySelector, Image" />
+                                    </scg:List>
+                                  </uix:TargetAnchorable.Anchors>
+                                </uix:TargetAnchorable>
+                              </uix:NGetText.Target>
+                              <uix:NGetText.Text>
+                                <OutArgument x:TypeArguments="x:String">[chat]</OutArgument>
+                              </uix:NGetText.Text>
+                            </uix:NGetText>
+                          </Sequence>
+                        </ActivityAction>
+                      </uix:NApplicationCard.Body>
+                      <uix:NApplicationCard.TargetApp>
+                        <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Firefox" IconBase64="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" InformativeScreenshot="ad85b35a19ec82a1213d917ffc574523.png" Selector="&lt;html app='firefox.exe' title='localhost:8888/CommandQueue.html' /&gt;" Url="http://localhost:8888/CommandQueue.html" />
+                      </uix:NApplicationCard.TargetApp>
+                    </uix:NApplicationCard>
+                  </Transition.Trigger>
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <av:PointCollection x:Key="ConnectorLocation">384.65,863.5 384.65,893.5 456.6,893.5 456.6,989.5</av:PointCollection>
+                      <x:Int32 x:Key="SrcConnectionPointIndex">51</x:Int32>
+                      <x:Int32 x:Key="DestConnectionPointIndex">30</x:Int32>
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <Transition.Condition>
+                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="chat = &quot;skip&quot;" />
+                  </Transition.Condition>
+                  <Transition.To>
+                    <State x:Name="__ReferenceID7" DisplayName="Skip State" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_10">
+                      <State.Entry>
+                        <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Workflow File" sap:VirtualizedContainerService.HintSize="334,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_33" UnSafe="False" WorkflowFileName="Framework\Skip.xaml">
+                          <ui:InvokeWorkflowFile.Arguments>
+                            <scg:Dictionary x:TypeArguments="x:String, Argument" />
+                          </ui:InvokeWorkflowFile.Arguments>
+                        </ui:InvokeWorkflowFile>
+                      </State.Entry>
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <av:Point x:Key="ShapeLocation">403,989.5</av:Point>
+                          <av:Size x:Key="ShapeSize">134,61</av:Size>
+                          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <State.Transitions>
+                        <Transition DisplayName="T8" sap:VirtualizedContainerService.HintSize="450,505" sap2010:WorkflowViewState.IdRef="Transition_17">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <av:PointCollection x:Key="ConnectorLocation">537,1026.1 550.4,1026.1 550.4,424 430.4,424 430.4,454</av:PointCollection>
+                              <x:Int32 x:Key="SrcConnectionPointIndex">44</x:Int32>
+                              <x:Int32 x:Key="DestConnectionPointIndex">70</x:Int32>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Transition.To>
+                            <x:Reference>__ReferenceID0</x:Reference>
+                          </Transition.To>
+                          <Transition.Condition>
+                            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="chat = &quot;skip&quot;" />
                           </Transition.Condition>
                         </Transition>
                       </State.Transitions>
@@ -735,17 +989,154 @@
     <x:Reference>__ReferenceID2</x:Reference>
     <x:Reference>__ReferenceID3</x:Reference>
     <x:Reference>__ReferenceID4</x:Reference>
+    <x:Reference>__ReferenceID5</x:Reference>
+    <x:Reference>__ReferenceID6</x:Reference>
+    <x:Reference>__ReferenceID7</x:Reference>
+    <State DisplayName="State" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_11">
+      <State.Entry>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_39">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Firefox: localhost:8888/CommandQueue.html" sap2010:WorkflowViewState.IdRef="NApplicationCard_5" InteractionMode="Simulate" ScopeGuid="ee2bf12c-1d0c-4109-8ab5-8d8a13ecd8df" Version="V2">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_38">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="chat" />
+                  </Sequence.Variables>
+                  <uix:NGetText DisplayName="Get Text 'play'" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="ee2bf12c-1d0c-4109-8ab5-8d8a13ecd8df" Version="V1">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="http://localhost:8888/CommandQueue.html" DesignTimeRectangle="16, 109, 1904, 18" ElementType="Text" FriendlyName="'play'" FullSelectorArgument="&lt;webctrl tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='P' type='' class='' /&gt;" Guid="543efe9b-9260-424c-8ce6-e4126ffcb35f" InformativeScreenshot="ffe7b90b03e81f950311d67b1327b1f4.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='localhost:8888/CommandQueue.html' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive" />
+                    </uix:NGetText.Target>
+                    <uix:NGetText.Text>
+                      <OutArgument x:TypeArguments="x:String">[chat]</OutArgument>
+                    </uix:NGetText.Text>
+                  </uix:NGetText>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Firefox" IconBase64="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" InformativeScreenshot="36acdd798860051197c7e283fd7bc110.png" Selector="&lt;html app='firefox.exe' title='localhost:8888/CommandQueue.html' /&gt;" Url="http://localhost:8888/CommandQueue.html" />
+            </uix:NApplicationCard.TargetApp>
+          </uix:NApplicationCard>
+        </Sequence>
+      </State.Entry>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">50,80</av:Point>
+          <av:Size x:Key="ShapeSize">134,61</av:Size>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </State>
+    <State DisplayName="State" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_12">
+      <State.Entry>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_41">
+          <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Firefox: localhost:8888/CommandQueue.html" sap2010:WorkflowViewState.IdRef="NApplicationCard_6" InteractionMode="Simulate" ScopeGuid="48555c91-9572-47e2-a6ff-c83f75d1082e" Version="V2">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_40">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="chat" />
+                  </Sequence.Variables>
+                  <uix:NGetText DisplayName="Get Text 'play https://www.youtub…'" sap2010:WorkflowViewState.IdRef="NGetText_6" ScopeIdentifier="48555c91-9572-47e2-a6ff-c83f75d1082e" Version="V1">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="http://localhost:8888/CommandQueue.html" DesignTimeRectangle="16, 109, 1904, 18" ElementType="Text" FriendlyName="'play'" FullSelectorArgument="&lt;webctrl tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='P' type='' class='' /&gt;" Guid="a2406eee-37d9-4840-aa06-58bd0e6348bd" InformativeScreenshot="b35f251e60f08694a4de9a8f2990c2b5.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='localhost:8888/CommandQueue.html' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive">
+                        <uix:TargetAnchorable.Anchors>
+                          <scg:List x:TypeArguments="uix:ITarget" Capacity="4">
+                            <uix:Target DesignTimeRectangle="16, 109, 1904, 52" FriendlyName="'play https://www.youtub…'" FullSelectorArgument="&lt;webctrl tag='BODY' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='BODY' type='' class='' aaname='              ' check:innerText='play&amp;#xA;&amp;#xA;https://www.youtube.com/watch?v=00QQWJIFxDA&amp;amp;ab_channel=KendrickLamar' /&gt;" ImageBase64="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" SearchSteps="FuzzySelector, Image" />
+                          </scg:List>
+                        </uix:TargetAnchorable.Anchors>
+                      </uix:TargetAnchorable>
+                    </uix:NGetText.Target>
+                    <uix:NGetText.Text>
+                      <OutArgument x:TypeArguments="x:String">[chat]</OutArgument>
+                    </uix:NGetText.Text>
+                  </uix:NGetText>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Firefox" IconBase64="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" InformativeScreenshot="3c39ef8374aeea3e39482e3e431ac4d3.png" Selector="&lt;html app='firefox.exe' title='localhost:8888/CommandQueue.html' /&gt;" Url="http://localhost:8888/CommandQueue.html" />
+            </uix:NApplicationCard.TargetApp>
+          </uix:NApplicationCard>
+        </Sequence>
+      </State.Entry>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">50,191</av:Point>
+          <av:Size x:Key="ShapeSize">134,61</av:Size>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </State>
+    <State DisplayName="State" sap:VirtualizedContainerService.HintSize="134,61" sap2010:WorkflowViewState.IdRef="State_13">
+      <State.Entry>
+        <Sequence sap2010:WorkflowViewState.IdRef="Sequence_43">
+          <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Browser Firefox: localhost:8888/CommandQueue.html" sap2010:WorkflowViewState.IdRef="NApplicationCard_7" InteractionMode="Simulate" ScopeGuid="1f429d60-4556-4b84-950b-3755e39babf3" Version="V2">
+            <uix:NApplicationCard.Body>
+              <ActivityAction x:TypeArguments="x:Object">
+                <ActivityAction.Argument>
+                  <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+                </ActivityAction.Argument>
+                <Sequence DisplayName="Do" sap2010:WorkflowViewState.IdRef="Sequence_42">
+                  <Sequence.Variables>
+                    <Variable x:TypeArguments="x:String" Name="chat" />
+                  </Sequence.Variables>
+                  <uix:NGetText DisplayName="Get Text 'play'" sap2010:WorkflowViewState.IdRef="NGetText_7" ScopeIdentifier="1f429d60-4556-4b84-950b-3755e39babf3" Version="V1">
+                    <uix:NGetText.Target>
+                      <uix:TargetAnchorable BrowserURL="http://localhost:8888/CommandQueue.html" DesignTimeRectangle="16, 109, 1904, 18" ElementType="Text" FriendlyName="'play'" FullSelectorArgument="&lt;webctrl tag='P' /&gt;" FuzzySelectorArgument="&lt;webctrl tag='P' type='' class='' /&gt;" Guid="de3ece84-c466-43f5-8a90-e7c85f388fa4" InformativeScreenshot="b5482e7b765211a078392b442d672972.png" ScopeSelectorArgument="&lt;html app='firefox.exe' title='localhost:8888/CommandQueue.html' /&gt;" SearchSteps="FuzzySelector" Visibility="Interactive" />
+                    </uix:NGetText.Target>
+                    <uix:NGetText.Text>
+                      <OutArgument x:TypeArguments="x:String">[chat]</OutArgument>
+                    </uix:NGetText.Text>
+                  </uix:NGetText>
+                </Sequence>
+              </ActivityAction>
+            </uix:NApplicationCard.Body>
+            <uix:NApplicationCard.TargetApp>
+              <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Firefox" IconBase64="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" InformativeScreenshot="3c39ef8374aeea3e39482e3e431ac4d3.png" Selector="&lt;html app='firefox.exe' title='localhost:8888/CommandQueue.html' /&gt;" Url="http://localhost:8888/CommandQueue.html" />
+            </uix:NApplicationCard.TargetApp>
+          </uix:NApplicationCard>
+        </Sequence>
+      </State.Entry>
+      <sap:WorkflowViewStateService.ViewState>
+        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+          <av:Point x:Key="ShapeLocation">50,302</av:Point>
+          <av:Size x:Key="ShapeSize">134,61</av:Size>
+          <x:Boolean x:Key="IsPinned">False</x:Boolean>
+        </scg:Dictionary>
+      </sap:WorkflowViewStateService.ViewState>
+    </State>
     <StateMachine.Variables>
       <Variable x:TypeArguments="ui:QueueItem" sap2010:Annotation.AnnotationText="Transaction item to be processed. The type of this variable can be changed to match the transaction type in the process. For example, when processing data from a spreadsheet that is read into a DataTable, this type can be changed to DataRow. " Name="TransactionItem" />
       <Variable x:TypeArguments="s:Exception" sap2010:Annotation.AnnotationText="Used during transitions between states to represent exceptions other than business exceptions." Name="SystemException" />
       <Variable x:TypeArguments="ui:BusinessRuleException" sap2010:Annotation.AnnotationText="Used during transitions between states and represents a situation that does not conform to the rules of the process being automated." Name="BusinessException" />
-      <Variable x:TypeArguments="x:Int32" sap2010:Annotation.AnnotationText="Sequential counter of transaction items." Default="1" Name="TransactionNumber" />
+      <Variable x:TypeArguments="x:Int32" sap2010:Annotation.AnnotationText="Sequential counter of transaction items." Name="TransactionNumber">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:Int32" Value="1" />
+        </Variable.Default>
+      </Variable>
       <Variable x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="Config" />
-      <Variable x:TypeArguments="x:Int32" sap2010:Annotation.AnnotationText="Used to control the number of attempts of retrying the transaction processing in case of system exceptions." Default="0" Name="RetryNumber" />
+      <Variable x:TypeArguments="x:Int32" sap2010:Annotation.AnnotationText="Used to control the number of attempts of retrying the transaction processing in case of system exceptions." Name="RetryNumber">
+        <Variable.Default>
+          <Literal x:TypeArguments="x:Int32" />
+        </Variable.Default>
+      </Variable>
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Optionally used to include additional information about the transaction item." Name="TransactionField2" />
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Optionally used to include additional information about the transaction item." Name="TransactionField1" />
       <Variable x:TypeArguments="x:String" sap2010:Annotation.AnnotationText="Transaction ID used for information and logging purposes. Ideally, the ID should be unique for each transaction. " Name="TransactionID" />
       <Variable x:TypeArguments="sd:DataTable" sap2010:Annotation.AnnotationText="Used in case transactions are stored in a DataTable, for example, after being retrieved from a spreadsheet." Name="TransactionData" />
+      <Variable x:TypeArguments="x:String" Name="chat" />
     </StateMachine.Variables>
   </StateMachine>
 </Activity>
