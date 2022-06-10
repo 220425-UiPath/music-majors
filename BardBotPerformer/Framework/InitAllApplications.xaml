@@ -5,7 +5,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1208,1301</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1208,1453</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Initialization_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -84,7 +84,7 @@
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="476,1196" sap2010:WorkflowViewState.IdRef="Sequence_9">
+  <Sequence sap2010:Annotation.AnnotationText="Open applications used in the process and do necessary initialization procedures (e.g., login)." DisplayName="Initialize All Applications" sap:VirtualizedContainerService.HintSize="476,1348" sap2010:WorkflowViewState.IdRef="Sequence_9">
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
@@ -126,5 +126,15 @@
         <uix:TargetApp Area="0, 0, 0, 0" FilePath="[in_Config(&quot;VLCPath&quot;).ToString]" IconBase64="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" InformativeScreenshot="4eca2dc953f63232f620546fe76c5fde.png" Selector="&lt;wnd app='vlc.exe' cls='Qt5QWindowIcon' title='VLC media player' /&gt;" />
       </uix:NApplicationCard.TargetApp>
     </uix:NApplicationCard>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Volume workflow" sap:VirtualizedContainerService.HintSize="434,112" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Framework\Volume.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+          <mva:VisualBasicValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" ExpressionText="in_Config" />
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="requestedVolume">
+          <Literal x:TypeArguments="x:String">40</Literal>
+        </InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
   </Sequence>
 </Activity>
