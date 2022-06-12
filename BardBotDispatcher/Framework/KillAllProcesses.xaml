@@ -53,6 +53,7 @@
       <AssemblyReference>System.ValueTuple</AssemblyReference>
       <AssemblyReference>NPOI</AssemblyReference>
       <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:Annotation.AnnotationText="Use the Kill Process activity to force the termination of the Windows processes representing applications used in the business process being automated.&#xA;Note that killing processes might have undesirable outcomes, such as losing unsaved changes to files." DisplayName="Kill All Processes" sap:VirtualizedContainerService.HintSize="604,866" sap2010:WorkflowViewState.IdRef="Sequence_2">
@@ -88,7 +89,7 @@
                 <InArgument x:TypeArguments="x:String">[process.ProcessName]</InArgument>
               </Assign.Value>
             </Assign>
-            <If Condition="[processName.Contains(&quot;BardBotD&quot;)]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[processName.ToLower.Contains(&quot;bardbotd&quot;) Or processName.ToLower.Contains(&quot;firefox&quot;)]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
                 <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="[processName]" />
               </If.Then>

@@ -88,7 +88,7 @@
                 <InArgument x:TypeArguments="x:String">[process.ProcessName]</InArgument>
               </Assign.Value>
             </Assign>
-            <If Condition="[processName.Contains(&quot;vlc&quot;) Or processName.Contains(&quot;BardBotP&quot;)]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_1">
+            <If Condition="[processName.ToLower.Contains(&quot;vlc&quot;) Or processName.ToLower.Contains(&quot;bardbotp&quot;) Or processName.ToLower.Contains(&quot;firefox&quot;)]" sap:VirtualizedContainerService.HintSize="484,208" sap2010:WorkflowViewState.IdRef="If_1">
               <If.Then>
                 <ui:KillProcess AppliesTo="{x:Null}" ContinueOnError="{x:Null}" Process="{x:Null}" DisplayName="Kill Process" sap:VirtualizedContainerService.HintSize="200,22" sap2010:WorkflowViewState.IdRef="KillProcess_1" ProcessName="[processName]" />
               </If.Then>
