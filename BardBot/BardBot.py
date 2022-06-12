@@ -1,9 +1,14 @@
 import airium
-import discord
+import asyncio
 import multiprocessing
 import subprocess
+from discord.ext import commands
 
-bot = discord.Client()
+
+bot = commands.Bot(command_prefix='!!')
+bot.remove_command('help')
+
+globalCooldown = False
 
 @bot.event
 async def on_ready():
@@ -14,27 +19,73 @@ async def on_message(message):
     if message.author == bot.user:
         return
 
-    messageContents = message.content
-    print(f'{message.author}: {messageContents}')
+    print(f'{message.author}: {message.content}')
 
-    if messageContents == '!!help' or messageContents == '!!commands':
-        await message.channel.send('Available commands:\n!!play <YouTube URL>\n!!pause\n!!resume\n!!skip\n!!volume <Volume level between 0-100>')
-    elif messageContents.startswith('!!'):
-        process_command(messageContents)
+    await bot.process_commands(message)
 
-def process_command(command):
-    commandParts = command.split(' ', 1)
-    match commandParts[0]:
-        case '!!play':
-            output_html('play', commandParts[1])
-        case '!!pause':
-            output_html('pause', '')
-        case '!!resume':
-            output_html('resume', '')
-        case '!!skip':
-            output_html('skip', '')
-        case '!!volume':
-            output_html('volume', commandParts[1])
+@bot.command()
+async def help(ctx):
+    await ctx.send('Available commands:\n!!play <YouTube URL or search string>\n!!pause\n!!resume\n!!skip\n!!volume <Volume level between 0-100>')
+
+@bot.command()
+async def play(ctx, *, arg):
+    global globalCooldown
+    if not globalCooldown:
+        globalCooldown = True
+        await ctx.send('Received play command.')
+        output_html('play', arg)
+        await asyncio.sleep(2.5)
+        output_html('', '')
+        await asyncio.sleep(2.5)
+        globalCooldown = False
+
+@bot.command()
+async def pause(ctx):
+    global globalCooldown
+    if not globalCooldown:
+        globalCooldown = True
+        await ctx.send('Received pause command.')
+        output_html('pause', '')
+        await asyncio.sleep(2.5)
+        output_html('', '')
+        await asyncio.sleep(2.5)
+        globalCooldown = False
+
+@bot.command()
+async def resume(ctx):
+    global globalCooldown
+    if not globalCooldown:
+        globalCooldown = True
+        await ctx.send('Received resume command.')
+        output_html('resume', '')
+        await asyncio.sleep(2.5)
+        output_html('', '')
+        await asyncio.sleep(2.5)
+        globalCooldown = False
+
+@bot.command()
+async def skip(ctx):
+    global globalCooldown
+    if not globalCooldown:
+        globalCooldown = True
+        await ctx.send('Received skip command.')
+        output_html('skip', '')
+        await asyncio.sleep(2.5)
+        output_html('', '')
+        await asyncio.sleep(2.5)
+        globalCooldown = False
+
+@bot.command()
+async def volume(ctx, *, arg):
+    global globalCooldown
+    if not globalCooldown:
+        globalCooldown = True
+        await ctx.send('Received volume command.')
+        output_html('volume', arg)
+        await asyncio.sleep(2.5)
+        output_html('', '')
+        await asyncio.sleep(2.5)
+        globalCooldown = False
 
 def output_html(command, arg):
     doc = airium.Airium()
