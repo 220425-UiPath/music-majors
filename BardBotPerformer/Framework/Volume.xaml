@@ -6,7 +6,7 @@
   <mva:VisualBasic.Settings>
     <x:Null />
   </mva:VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>1208,2169</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>1208,1807</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Volume_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="32">
@@ -78,7 +78,7 @@
       <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Volume" sap:VirtualizedContainerService.HintSize="1111,2064" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Volume" sap:VirtualizedContainerService.HintSize="987,1702" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:Int32" Name="currentVolume" />
       <Variable x:TypeArguments="x:String" Name="chatCommand" />
@@ -89,8 +89,8 @@
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="1069,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Adjusting volume.&quot;]" />
-    <Assign sap:VirtualizedContainerService.HintSize="1069,60" sap2010:WorkflowViewState.IdRef="Assign_1">
+    <ui:LogMessage DisplayName="Log Message" sap:VirtualizedContainerService.HintSize="945,91" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Adjusting volume.&quot;]" />
+    <Assign sap:VirtualizedContainerService.HintSize="945,60" sap2010:WorkflowViewState.IdRef="Assign_1">
       <Assign.To>
         <OutArgument x:TypeArguments="x:Int32">[requestedVolumeInt]</OutArgument>
       </Assign.To>
@@ -98,26 +98,83 @@
         <InArgument x:TypeArguments="x:Int32">[Integer.Parse(requestedVolume)]</InArgument>
       </Assign.Value>
     </Assign>
-    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Application: Kendrick Lamar - Kendrick Lamar - Silent Hill ft. Kodak Black (Official Audio) - VL" sap:VirtualizedContainerService.HintSize="1069,539" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" ScopeGuid="e522102e-af0c-425c-844c-bb5b4775efdd" Version="V2">
+    <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Application: VLC" sap:VirtualizedContainerService.HintSize="945,1379" sap2010:WorkflowViewState.IdRef="NApplicationCard_2" InteractionMode="Simulate" ScopeGuid="e522102e-af0c-425c-844c-bb5b4775efdd" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,250" sap2010:WorkflowViewState.IdRef="Sequence_3">
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="911,1090" sap2010:WorkflowViewState.IdRef="Sequence_3">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NGetText DisplayName="Get Text '120'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="e522102e-af0c-425c-844c-bb5b4775efdd" Version="V1">
+            <uix:NGetText DisplayName="Get Current Volume" sap:VirtualizedContainerService.HintSize="869,156" sap2010:WorkflowViewState.IdRef="NGetText_3" ScopeIdentifier="e522102e-af0c-425c-844c-bb5b4775efdd" Version="V1">
               <uix:NGetText.Target>
-                <uix:TargetAnchorable DesignTimeRectangle="1009, 660, 85, 26" FriendlyName="'120'" FullSelectorArgument="&lt;wnd cls='Qt5QWindowIcon' title='QWidgetClassWindow' /&gt;&lt;ctrl idx='2' role='slider' /&gt;" FuzzySelectorArgument="&lt;wnd cls='Qt5QWindowIcon' title='QWidgetClassWindow' /&gt;&lt;ctrl automationid='' role='slider' /&gt;" Guid="f210f83a-762e-4252-b6c8-995267352c1e" InformativeScreenshot="4d21275e3537f5df056e1c3182ea8c50.png" ScopeSelectorArgument="&lt;wnd app='vlc.exe' cls='Qt5QWindowIcon' title='Kendrick Lamar - Kendrick Lamar - Silent Hill ft. Kodak Black (O*' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive" />
+                <uix:TargetAnchorable DesignTimeRectangle="1843, 1021, 85, 26" FriendlyName="'50'" FullSelectorArgument="&lt;ctrl idx='2' role='slider' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='' role='slider' /&gt;" Guid="fca51e76-4d9c-4f81-a523-11c5bbc81eec" InformativeScreenshot="85713e6da8d8107b71640d764bfd4824.png" ScopeSelectorArgument="&lt;wnd app='vlc.exe' cls='Qt5QWindowIcon' title='VLC media player' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive" />
               </uix:NGetText.Target>
               <uix:NGetText.Text>
                 <OutArgument x:TypeArguments="x:Int32">[currentVolume]</OutArgument>
               </uix:NGetText.Text>
             </uix:NGetText>
+            <If Condition="[currentVolume &gt; requestedVolumeInt]" sap:VirtualizedContainerService.HintSize="869,800" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Then>
+                <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="412,651" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
+                  <ui:InterruptibleDoWhile.Body>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,486" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NKeyboardShortcuts DelayBetweenShortcuts="{x:Null}" ActivateBefore="True" ClickBeforeMode="None" DisplayName="Decrease Volume" sap:VirtualizedContainerService.HintSize="334,198" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" InteractionMode="WindowMessages" ScopeIdentifier="e522102e-af0c-425c-844c-bb5b4775efdd" Shortcuts="[d(hk)][k(down)][u(hk)]" Version="V1">
+                        <uix:NKeyboardShortcuts.Target>
+                          <uix:TargetAnchorable DesignTimeRectangle="1843, 1021, 85, 26" FriendlyName="'50'" FullSelectorArgument="&lt;ctrl idx='2' role='slider' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='' role='slider' /&gt;" Guid="f99eaee5-4a29-48e0-9611-1c437037c674" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFkAAAAeCAYAAABHVrJ7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATtSURBVGhD7Zn7SxxXFMf7Qyml/a2/N4/+0CQmP7Zp8mcEQogEQqIxotlo1H2MruvqusZHdEHxgQ+s7lWqBYVKXYsKKj5wpWp6RRRdEJ8oPv+Db+fc3buO66IxuquBOfBlZu49d+bOZ8+ce3bmq4ODA+i6eEn7+ptvoUOOkKTpkCMoaTrkCEqaDvkM2tvbw+zsLLq7u1FVVYXMzEzk5+djeno6rL80HfIJ2t/fx8LCAnp7e1FbWwur1Qqj0QiTyYTi4mK0t7ejpKQEubm5wjd0vLSLgezzwKUoUAJyeXxquw8eV6DN5YFP+HrhPuLjH+91u+Dxac53iVpaWsLAwAAaGxtht9sFVFJBQQFaW1sxOjqK9fX1oH9fX5/o39raOnIekrSLg+z2Hm3zuqEE2rxuBW7vAXwel+YHcMMb8NMCj7ZWV1cxPDwMxph49CXUvLw8NDc3Y2hoCMvLy2HHkiTkzc3NY33SIgb5EKh6HAB+HLK6dcsoj44Ixvj4ONra2lBUVBSEmp2djYaGBvT398Pn+/QfPbqQA2lAUfwRKqNX9AejOiRdqO3kQ77ascfOfw5tb29jcnISHR0dKC0tFfmUoNCiVVNTg56eHszPz4fNqZ+i6EHWSEZruEg+6qsCF7labv1jgz/MZ2p3dxecc3R1daG8vBwWi0VAoG1FRYVon5mZEX7hxp9VlwKZolJGaWhO1vr5PO7AYnc+yBSBc3Nz8Hg8qK6uFk8E3TRFrMvlQmdnJ6amprCzsxN2/HkVNcgEx/+4qwpWEuGqi4BCcvhZ0wXlTLq5uro6kUvpJkmUY6msmpiYCHvTkdClRHIkRKv74OAgmpqaRE0qoTqdTlFWjYyMYG1tLezYSOuLhUzACFxLS4sAKaFSWUWgTyuroqkvBjJN0Ov1ikc9tKyqr68XN7K4uBh27GXrykKmRYgWI1qUysrKYDabxUQzlAwYXAbE/xGPpwNPP7usiqauDGQql6hsovKJyihZVmWYM5BakookloSX/S8R+zEWT/gTPOaP8Yg/Cnuuq6ZLg0wRSAU+FfpU8FPhTxMxmoxIL0xHyu8pSPonCfHT8XjBX+A5f45n/BliuQ75RFFZRX9J6a+pzWbzQyU51YhtUCP271QY/jUgmScjkScigScgjsfpkE/SysqKWOXpJYq2rDLZTbDUWmD5ywKzV8213Ig0noYUngID1yGfqI2NDYyNjYm6lF77SahmmxlZVVmwddiQM5YDG7fByq1QuAIz1yGTnQqZBtNXAPlixZxlhq3CBsefDrwffo9CXggnd8LBHcjluTpkjaSdCpk+tRDggtYClA2Uofy/cri4Cx/4BxTzYh1yAPK5XtpLyM5mJ/JZPhzMgTyWBzuzI4ep6YHZkM2yYWVWZLEsKEyBhan5mJlhYmr0M7WiYOlIY2l4x94hlaXiLXsLAzPgDXuDZJYsSrhElojX7DUSWAJesVeIY3Gi5LvqupDPT/QYVFZWBtOFrqPSP6ResqTpkCMoaTrkCEqagHz3xgPEXP8NtJX7Wt27+fCw/+YD3PtJPb6h9oXozvX7wX3yi1F1W227q/qT7lBfoE3o2n11DPk+DO7f+vFXsY1Rr0VtJNr39/0iriF1+xr5Hl5THos+VbfUY9rSdUlyDiQ5B7mvbSPRPH9Wr6dt0/rSfOScaX63AvtaSfv+ux/wP0RsWgZLzidAAAAAAElFTkSuQmCC" InformativeScreenshot="7aec8ef5d257d43c2e58d38286e3aa23.png" ScopeSelectorArgument="&lt;wnd app='vlc.exe' cls='Qt5QWindowIcon' title='VLC media player' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive" />
+                        </uix:NKeyboardShortcuts.Target>
+                      </uix:NKeyboardShortcuts>
+                      <uix:NGetText DisplayName="Get New Volume" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="e522102e-af0c-425c-844c-bb5b4775efdd" Version="V1">
+                        <uix:NGetText.Target>
+                          <uix:TargetAnchorable DesignTimeRectangle="1843, 1021, 85, 26" FriendlyName="'50'" FullSelectorArgument="&lt;ctrl idx='2' role='slider' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='' role='slider' /&gt;" Guid="ea5f7655-83da-41cf-8a98-75144b6bbc52" InformativeScreenshot="85713e6da8d8107b71640d764bfd4824.png" ScopeSelectorArgument="&lt;wnd app='vlc.exe' cls='Qt5QWindowIcon' title='VLC media player' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive" />
+                        </uix:NGetText.Target>
+                        <uix:NGetText.Text>
+                          <OutArgument x:TypeArguments="x:Int32">[currentVolume]</OutArgument>
+                        </uix:NGetText.Text>
+                      </uix:NGetText>
+                    </Sequence>
+                  </ui:InterruptibleDoWhile.Body>
+                  <ui:InterruptibleDoWhile.Condition>
+                    <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="currentVolume &gt; requestedVolumeInt" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
+                  </ui:InterruptibleDoWhile.Condition>
+                </ui:InterruptibleDoWhile>
+              </If.Then>
+              <If.Else>
+                <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[currentVolume &lt; requestedVolumeInt]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="412,651" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
+                  <ui:InterruptibleDoWhile.Body>
+                    <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,486" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NKeyboardShortcuts DelayBetweenShortcuts="{x:Null}" ActivateBefore="True" ClickBeforeMode="None" DisplayName="Increase Volume" sap:VirtualizedContainerService.HintSize="334,198" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" InteractionMode="WindowMessages" ScopeIdentifier="e522102e-af0c-425c-844c-bb5b4775efdd" Shortcuts="[d(hk)][k(up)][u(hk)]" Version="V1">
+                        <uix:NKeyboardShortcuts.Target>
+                          <uix:TargetAnchorable DesignTimeRectangle="1843, 1021, 85, 26" FriendlyName="'50'" FullSelectorArgument="&lt;ctrl idx='2' role='slider' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='' role='slider' /&gt;" Guid="3b473c28-242f-47e8-b235-708c47ae862e" ImageBase64="iVBORw0KGgoAAAANSUhEUgAAAFkAAAAeCAYAAABHVrJ7AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAATtSURBVGhD7Zn7SxxXFMf7Qyml/a2/N4/+0CQmP7Zp8mcEQogEQqIxotlo1H2MruvqusZHdEHxgQ+s7lWqBYVKXYsKKj5wpWp6RRRdEJ8oPv+Db+fc3buO66IxuquBOfBlZu49d+bOZ8+ce3bmq4ODA+i6eEn7+ptvoUOOkKTpkCMoaTrkCEqaDvkM2tvbw+zsLLq7u1FVVYXMzEzk5+djeno6rL80HfIJ2t/fx8LCAnp7e1FbWwur1Qqj0QiTyYTi4mK0t7ejpKQEubm5wjd0vLSLgezzwKUoUAJyeXxquw8eV6DN5YFP+HrhPuLjH+91u+Dxac53iVpaWsLAwAAaGxtht9sFVFJBQQFaW1sxOjqK9fX1oH9fX5/o39raOnIekrSLg+z2Hm3zuqEE2rxuBW7vAXwel+YHcMMb8NMCj7ZWV1cxPDwMxph49CXUvLw8NDc3Y2hoCMvLy2HHkiTkzc3NY33SIgb5EKh6HAB+HLK6dcsoj44Ixvj4ONra2lBUVBSEmp2djYaGBvT398Pn+/QfPbqQA2lAUfwRKqNX9AejOiRdqO3kQ77ascfOfw5tb29jcnISHR0dKC0tFfmUoNCiVVNTg56eHszPz4fNqZ+i6EHWSEZruEg+6qsCF7labv1jgz/MZ2p3dxecc3R1daG8vBwWi0VAoG1FRYVon5mZEX7hxp9VlwKZolJGaWhO1vr5PO7AYnc+yBSBc3Nz8Hg8qK6uFk8E3TRFrMvlQmdnJ6amprCzsxN2/HkVNcgEx/+4qwpWEuGqi4BCcvhZ0wXlTLq5uro6kUvpJkmUY6msmpiYCHvTkdClRHIkRKv74OAgmpqaRE0qoTqdTlFWjYyMYG1tLezYSOuLhUzACFxLS4sAKaFSWUWgTyuroqkvBjJN0Ov1ikc9tKyqr68XN7K4uBh27GXrykKmRYgWI1qUysrKYDabxUQzlAwYXAbE/xGPpwNPP7usiqauDGQql6hsovKJyihZVmWYM5BakookloSX/S8R+zEWT/gTPOaP8Yg/Cnuuq6ZLg0wRSAU+FfpU8FPhTxMxmoxIL0xHyu8pSPonCfHT8XjBX+A5f45n/BliuQ75RFFZRX9J6a+pzWbzQyU51YhtUCP271QY/jUgmScjkScigScgjsfpkE/SysqKWOXpJYq2rDLZTbDUWmD5ywKzV8213Ig0noYUngID1yGfqI2NDYyNjYm6lF77SahmmxlZVVmwddiQM5YDG7fByq1QuAIz1yGTnQqZBtNXAPlixZxlhq3CBsefDrwffo9CXggnd8LBHcjluTpkjaSdCpk+tRDggtYClA2Uofy/cri4Cx/4BxTzYh1yAPK5XtpLyM5mJ/JZPhzMgTyWBzuzI4ep6YHZkM2yYWVWZLEsKEyBhan5mJlhYmr0M7WiYOlIY2l4x94hlaXiLXsLAzPgDXuDZJYsSrhElojX7DUSWAJesVeIY3Gi5LvqupDPT/QYVFZWBtOFrqPSP6ResqTpkCMoaTrkCEqagHz3xgPEXP8NtJX7Wt27+fCw/+YD3PtJPb6h9oXozvX7wX3yi1F1W227q/qT7lBfoE3o2n11DPk+DO7f+vFXsY1Rr0VtJNr39/0iriF1+xr5Hl5THos+VbfUY9rSdUlyDiQ5B7mvbSPRPH9Wr6dt0/rSfOScaX63AvtaSfv+ux/wP0RsWgZLzidAAAAAAElFTkSuQmCC" InformativeScreenshot="7aec8ef5d257d43c2e58d38286e3aa23.png" ScopeSelectorArgument="&lt;wnd app='vlc.exe' cls='Qt5QWindowIcon' title='VLC media player' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive" />
+                        </uix:NKeyboardShortcuts.Target>
+                      </uix:NKeyboardShortcuts>
+                      <uix:NGetText DisplayName="Get New Volume" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="e522102e-af0c-425c-844c-bb5b4775efdd" Version="V1">
+                        <uix:NGetText.Target>
+                          <uix:TargetAnchorable DesignTimeRectangle="1843, 1021, 85, 26" FriendlyName="'50'" FullSelectorArgument="&lt;ctrl idx='2' role='slider' /&gt;" FuzzySelectorArgument="&lt;ctrl automationid='' role='slider' /&gt;" Guid="fdfb9bc7-3204-418e-8886-ff7c7c76f64b" InformativeScreenshot="762157a679423df2b71fe9eb59303f76.png" ScopeSelectorArgument="&lt;wnd app='vlc.exe' cls='Qt5QWindowIcon' title='VLC media player' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive" />
+                        </uix:NGetText.Target>
+                        <uix:NGetText.Text>
+                          <OutArgument x:TypeArguments="x:Int32">[currentVolume]</OutArgument>
+                        </uix:NGetText.Text>
+                      </uix:NGetText>
+                    </Sequence>
+                  </ui:InterruptibleDoWhile.Body>
+                </ui:InterruptibleDoWhile>
+              </If.Else>
+            </If>
           </Sequence>
         </ActivityAction>
       </uix:NApplicationCard.Body>
@@ -125,92 +182,5 @@
         <uix:TargetApp Area="0, 0, 0, 0" FilePath="[in_Config(&quot;VLCPath&quot;).ToString]" IconBase64="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" InformativeScreenshot="f30aacdd585143895c05719e48e5d931.png" Selector="&lt;wnd app='vlc.exe' cls='Qt5QWindowIcon' title='Kendrick Lamar - Kendrick Lamar - Silent Hill ft. Kodak Black (O*' /&gt;" />
       </uix:NApplicationCard.TargetApp>
     </uix:NApplicationCard>
-    <If Condition="[currentVolume &gt; requestedVolumeInt]" sap:VirtualizedContainerService.HintSize="1069,1162" sap2010:WorkflowViewState.IdRef="If_1">
-      <If.Then>
-        <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="512,1013" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_1">
-          <ui:InterruptibleDoWhile.Body>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,848" sap2010:WorkflowViewState.IdRef="Sequence_5">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Application: Kendrick Lamar - Kendrick Lamar - Silent Hill ft. Kodak Black (Official Audio) - VL" sap:VirtualizedContainerService.HintSize="434,756" sap2010:WorkflowViewState.IdRef="NApplicationCard_3" InteractionMode="Simulate" ScopeGuid="cced9a1a-6364-444c-a96c-eeba1dc565b9" Version="V2">
-                <uix:NApplicationCard.Body>
-                  <ActivityAction x:TypeArguments="x:Object">
-                    <ActivityAction.Argument>
-                      <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
-                    </ActivityAction.Argument>
-                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,467" sap2010:WorkflowViewState.IdRef="Sequence_4">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <uix:NKeyboardShortcuts DelayBetweenShortcuts="{x:Null}" ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="334,178" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_1" InteractionMode="WindowMessages" Shortcuts="[d(hk)][k(down)][u(hk)][d(hk)][k(down)][u(hk)]" Version="V1" />
-                      <uix:NGetText DisplayName="Get Text '120'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NGetText_4" ScopeIdentifier="cced9a1a-6364-444c-a96c-eeba1dc565b9" Version="V1">
-                        <uix:NGetText.Target>
-                          <uix:TargetAnchorable DesignTimeRectangle="1009, 660, 85, 26" FriendlyName="'120'" FullSelectorArgument="&lt;wnd cls='Qt5QWindowIcon' title='QWidgetClassWindow' /&gt;&lt;ctrl idx='2' role='slider' /&gt;" FuzzySelectorArgument="&lt;wnd cls='Qt5QWindowIcon' title='QWidgetClassWindow' /&gt;&lt;ctrl automationid='' role='slider' /&gt;" Guid="f210f83a-762e-4252-b6c8-995267352c1e" InformativeScreenshot="4d21275e3537f5df056e1c3182ea8c50.png" ScopeSelectorArgument="&lt;wnd app='vlc.exe' cls='Qt5QWindowIcon' title='Kendrick Lamar - Kendrick Lamar - Silent Hill ft. Kodak Black (O*' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive" />
-                        </uix:NGetText.Target>
-                        <uix:NGetText.Text>
-                          <OutArgument x:TypeArguments="x:Int32">[currentVolume]</OutArgument>
-                        </uix:NGetText.Text>
-                      </uix:NGetText>
-                    </Sequence>
-                  </ActivityAction>
-                </uix:NApplicationCard.Body>
-                <uix:NApplicationCard.TargetApp>
-                  <uix:TargetApp Area="0, 0, 0, 0" FilePath="[in_Config(&quot;VLCPath&quot;).ToString]" IconBase64="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" InformativeScreenshot="8bc57caecbca411ad8b959d7376751e5.png" Selector="&lt;wnd app='vlc.exe' cls='Qt5QWindowIcon' title='Kendrick Lamar - Kendrick Lamar - Silent Hill ft. Kodak Black (O*' /&gt;" />
-                </uix:NApplicationCard.TargetApp>
-              </uix:NApplicationCard>
-            </Sequence>
-          </ui:InterruptibleDoWhile.Body>
-          <ui:InterruptibleDoWhile.Condition>
-            <mva:VisualBasicValue x:TypeArguments="x:Boolean" ExpressionText="currentVolume &gt; requestedVolumeInt" sap2010:WorkflowViewState.IdRef="VisualBasicValue`1_1" />
-          </ui:InterruptibleDoWhile.Condition>
-        </ui:InterruptibleDoWhile>
-      </If.Then>
-      <If.Else>
-        <ui:InterruptibleDoWhile CurrentIndex="{x:Null}" Condition="[currentVolume &lt; requestedVolumeInt]" DisplayName="Do While" sap:VirtualizedContainerService.HintSize="512,1014" sap2010:WorkflowViewState.IdRef="InterruptibleDoWhile_2">
-          <ui:InterruptibleDoWhile.Body>
-            <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="476,849" sap2010:WorkflowViewState.IdRef="Sequence_7">
-              <sap:WorkflowViewStateService.ViewState>
-                <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                  <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                </scg:Dictionary>
-              </sap:WorkflowViewStateService.ViewState>
-              <uix:NApplicationCard WebDriverMode="{x:Null}" AttachMode="ByInstance" DisplayName="Use Application: Kendrick Lamar - Kendrick Lamar - Silent Hill ft. Kodak Black (Official Audio) - VL" sap:VirtualizedContainerService.HintSize="434,757" sap2010:WorkflowViewState.IdRef="NApplicationCard_4" InteractionMode="Simulate" ScopeGuid="cced9a1a-6364-444c-a96c-eeba1dc565b9" Version="V2">
-                <uix:NApplicationCard.Body>
-                  <ActivityAction x:TypeArguments="x:Object">
-                    <ActivityAction.Argument>
-                      <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
-                    </ActivityAction.Argument>
-                    <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="376,468" sap2010:WorkflowViewState.IdRef="Sequence_6">
-                      <sap:WorkflowViewStateService.ViewState>
-                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
-                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
-                        </scg:Dictionary>
-                      </sap:WorkflowViewStateService.ViewState>
-                      <uix:NKeyboardShortcuts DelayBetweenShortcuts="{x:Null}" ActivateBefore="True" ClickBeforeMode="None" DisplayName="Keyboard Shortcuts" sap:VirtualizedContainerService.HintSize="334,178" sap2010:WorkflowViewState.IdRef="NKeyboardShortcuts_2" InteractionMode="WindowMessages" Shortcuts="[d(hk)][k(up)][u(hk)][d(hk)][k(up)][u(hk)]" Version="V1" />
-                      <uix:NGetText DisplayName="Get Text '120'" sap:VirtualizedContainerService.HintSize="334,156" sap2010:WorkflowViewState.IdRef="NGetText_5" ScopeIdentifier="cced9a1a-6364-444c-a96c-eeba1dc565b9" Version="V1">
-                        <uix:NGetText.Target>
-                          <uix:TargetAnchorable DesignTimeRectangle="1009, 660, 85, 26" FriendlyName="'120'" FullSelectorArgument="&lt;wnd cls='Qt5QWindowIcon' title='QWidgetClassWindow' /&gt;&lt;ctrl idx='2' role='slider' /&gt;" FuzzySelectorArgument="&lt;wnd cls='Qt5QWindowIcon' title='QWidgetClassWindow' /&gt;&lt;ctrl automationid='' role='slider' /&gt;" Guid="f210f83a-762e-4252-b6c8-995267352c1e" InformativeScreenshot="4d21275e3537f5df056e1c3182ea8c50.png" ScopeSelectorArgument="&lt;wnd app='vlc.exe' cls='Qt5QWindowIcon' title='Kendrick Lamar - Kendrick Lamar - Silent Hill ft. Kodak Black (O*' /&gt;" SearchSteps="Selector, FuzzySelector" Visibility="Interactive" />
-                        </uix:NGetText.Target>
-                        <uix:NGetText.Text>
-                          <OutArgument x:TypeArguments="x:Int32">[currentVolume]</OutArgument>
-                        </uix:NGetText.Text>
-                      </uix:NGetText>
-                    </Sequence>
-                  </ActivityAction>
-                </uix:NApplicationCard.Body>
-                <uix:NApplicationCard.TargetApp>
-                  <uix:TargetApp Area="0, 0, 0, 0" FilePath="[in_Config(&quot;VLCPath&quot;).ToString]" IconBase64="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" InformativeScreenshot="8bc57caecbca411ad8b959d7376751e5.png" Selector="&lt;wnd app='vlc.exe' cls='Qt5QWindowIcon' title='Kendrick Lamar - Kendrick Lamar - Silent Hill ft. Kodak Black (O*' /&gt;" />
-                </uix:NApplicationCard.TargetApp>
-              </uix:NApplicationCard>
-            </Sequence>
-          </ui:InterruptibleDoWhile.Body>
-        </ui:InterruptibleDoWhile>
-      </If.Else>
-    </If>
   </Sequence>
 </Activity>
