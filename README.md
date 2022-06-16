@@ -37,7 +37,7 @@ A music bot to play Discord YouTube requests through a user's microphone.
 4. Set input and output devices in your communication applications to either `Default Device` or `VoiceMeeter Aux Input/Output`.
 
 ---
-## Contributors:
+## Contributors
 - Warren Lee (Team Lead)
 - Matthew Emsak (Scrum Master)
 - Esther Parson
